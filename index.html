@@ -3,22 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookit - A Recipe App</title>
+    <title>Foodify - Discover Food</title>
+    <link rel="icon" href="Assets/Favicon.png" type="image/png">
+    <link rel="icon" href="Assets/Favicon.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="Assets/Favicon.png" sizes="180x180">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="styles.css">
     <script defer src="js/main.js" type="module"></script>
 </head>
-<body>
+<body class="">
 
 <header class="header">
     <div class="container">
         <img src="Assets/foodify-logo.png" class="logo">
+
+        <div class="header-tabs">
+            <ul class="header-tabs-list">
+                <li class="header-tabs-item">Home</li>
+                <li class="header-tabs-item">Recipes</li>
+            </ul>
+        </div>
+
         <div class="header-buttons">
             <button class="mode-switch icon-btn"><span class="material-symbols-outlined">dark_mode</span></button>
+
+            <a href="" class="bookmarks-btn">
+                <span class="material-symbols-outlined">bookmark</span>
+                <span class="bookmarks-btn-text">Bookmarks</span>
+            </a>
         </div>
+
     </div>
 </header>
 
+<main class="main">
+    <article class="home container">
+
+        <section class="container hero-section">
+
+            <div class="hero-section-content">
+
+                <div class="hero-text">
+                    <h2>Discover Your Next Favorite Dish</h2>
+                    <p>Explore a world of flavors with personalized recommendations. Find the perfect dish based on your mood, available ingreients, dietary preferences, and favorite cuisines.</p>
+                </div>
+
+                <div class="search-wrapper">
+                    <input class="search-input" type="search" placeholder="Search Food">
+                    <button class="search-button"><span class="material-symbols-outlined">search</span></button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </article>
+
+
+</main>
 
 </body>
 </html>

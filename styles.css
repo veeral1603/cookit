@@ -4,10 +4,16 @@
 {
     --background-color: white;
     --icon-btn-bg-color: rgb(233, 231, 231);
-    /* --icon-btn-color: #ff7800; */
+
+    --primary-heading-color: #333;
+    --hero-heading-color: white;
+    --btn-color: #ff6b16fd;
 }
 
-
+.dark-mode 
+{
+    --background-color: rgb(17, 17, 17);
+}
 
 *
 {
@@ -24,10 +30,21 @@
   'opsz' 24
 }
 
+a 
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol 
+{
+    list-style: none;
+}
+
 button, input 
 {
     background-color: transparent;
-    font: inherit;
+    font-family: inherit;
     border: none;
 
 }
@@ -40,12 +57,10 @@ body
 {
     font-family: "Poppins" , sans-serif;
     background-color: var(--background-color);
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 
-.container 
-{
-    
-}
+
 
 /* Header  */
 
@@ -62,6 +77,12 @@ body
 {
     height: 40px;
 }
+
+.header-tabs 
+{
+    display: none;
+}
+
 .icon-btn 
 {
     height: 48px;
@@ -72,3 +93,128 @@ body
     border-radius: 50%;
     background-color: var(--icon-btn-bg-color);
 }
+
+.bookmarks-btn
+{
+    background-color: var(--btn-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: none;
+}
+
+/* Main  */
+
+
+.main 
+{
+    padding: 0.5rem;
+}
+
+/* Hero Section  */
+
+.hero-section
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-image: url("Assets/Hero/2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 400px;
+    
+}
+
+.hero-section::before 
+{
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-section  .hero-section-content 
+{
+    color: var(--hero-heading-color);
+    position: relative;
+    z-index: 2;
+    gap: 40px;
+    padding: 0.8rem;
+    width: 100%;
+    
+}
+.hero-section  .hero-section-content , .hero-section-content .hero-text
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.hero-section-content .hero-text h2 
+{
+    font-size: 28px;
+}
+
+.hero-section-content .hero-text p 
+{
+    font-size: 14px;
+}
+.hero-section-content .hero-text 
+{
+    gap: 10px;
+}
+
+.search-wrapper 
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 4px;
+    width: 90%;
+    border-radius: 2px;
+    
+}
+ .search-input 
+{
+    
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: 400;
+}
+
+
+
+.search-input::-webkit-search-cancel-button 
+{
+    display: none;
+}
+
+.search-wrapper .search-button 
+{
+    display: flex;
+    align-items: center;
+    color: var(--hero-heading-color);
+    justify-content: center;
+    background-color: var(--btn-color);
+    padding: 0.5rem;
+    border-radius: 2px;
+}
+
+/* Tabs  */
