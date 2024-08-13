@@ -8,6 +8,8 @@
     --primary-heading-color: #333;
     --hero-heading-color: white;
     --btn-color: #ff6b16fd;
+    --mobile-nav-background-color: #ffeaddfd;
+    --mobile-nav-active-color: #ffbe98fd;
 }
 
 .dark-mode 
@@ -106,6 +108,58 @@ body
     display: none;
 }
 
+/* Mobile Nav  */
+
+.mobile-nav 
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-block: 10px;
+    background-color: var(--mobile-nav-background-color);
+    z-index: 4;
+}
+
+.mobile-nav-list 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mobile-nav-list .list-item
+{
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    
+}
+
+.mobile-nav-list .icon-container
+{
+    display: grid;
+    place-items: center;
+    padding: 4px 12px;
+    border-radius: 50px;
+    
+}
+
+.mobile-nav-list .list-item.active .icon-container    /*ACTIVE PAGE*/
+{
+    background-color: var(--mobile-nav-active-color);
+    
+}
+.mobile-nav-list .list-item.active .material-symbols-outlined   /*ACTIVE PAGE ICON FILLED*/
+{
+    font-variation-settings:'FILL' 1;
+}
+
+.mobile-nav-list .nav-label 
+{
+    font-size: 14px;
+    margin-block-start: 4px;
+}
 /* Main  */
 
 
