@@ -4,12 +4,18 @@
 {
     --background-color: white;
     --icon-btn-bg-color: rgb(233, 231, 231);
+    --primary-color: #ff6b16fd;;
 
     --primary-heading-color: #333;
     --hero-heading-color: white;
     --btn-color: #ff6b16fd;
     --mobile-nav-background-color: #ffeaddfd;
     --mobile-nav-active-color: #fcbf9cfd;
+
+    --outline: rgb(221, 221, 221);
+    --black-alpha-10: rgba(0, 0, 0, 0.1);
+
+    --header-height: 81px;
 }
 
 .dark-mode 
@@ -66,13 +72,15 @@ body
 
 /* Header  */
 
+
 .header .container 
 {
     padding: 1rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-block-end: 1px solid rgb(221, 221, 221);
+    border-block-end: 1px solid var(--outline);
+    
 }
 
 .header .logo 
@@ -164,6 +172,17 @@ body
 /* Main  */
 
 
+/* .section 
+{
+    width: 100%;
+}
+.container
+{
+    max-width: 1130px;
+    width: 100%;
+    margin-inline: auto;
+} */
+
 .main 
 {
     padding: 0.8rem;
@@ -231,7 +250,7 @@ body
 }
 .hero-section-content .hero-text 
 {
-    gap: 10px;
+    gap: 0px;
 }
 
 .search-wrapper 
@@ -274,4 +293,54 @@ body
 }
 
 /* Tabs  */
+
+.tabs-container 
+{
+    display: flex;
+    box-shadow: inset 0 -1px 0 var(--outline);
+    overflow-x: auto;
+    scrollbar-width: auto;
+    margin-block-end: 16px;
+}
+
+.tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 24px;
+    height: 48px;
+    border-block-end: 2px solid transparent;
+    transition: border 0.3s ease-in;
+    flex: 1 0 80px;
+    
+}
+.tab-btn:where(:hover, :focus-visible):not(:active)
+{
+    background-color: var(--black-alpha-10);
+
+}
+
+.tab-btn[data-selected="true"]
+{
+    border-color: var(--primary-color);
+}
+
+.tabs-section .tabs-container 
+{
+    position: sticky;
+    top: var(--header-height);
+   
+    margin-block-end: 16px;
+    z-index: 1;
+}
+
+.tab-panel[hidden] 
+{
+    display: none;
+}
 
