@@ -124,7 +124,7 @@ body
     bottom: 0;
     left: 0;
     width: 100%;
-    padding-block: 10px;
+    padding-block: 8px;
     background-color: var(--mobile-nav-background-color);
     z-index: 4;
     box-shadow: rgba(0, 0, 0, 0.2) 0px -5px 10px;
@@ -166,8 +166,8 @@ body
 
 .mobile-nav-list .nav-label 
 {
-    font-size: 14px;
-    margin-block-start: 4px;
+    font-size: 12px;
+    
 }
 /* Main  */
 
