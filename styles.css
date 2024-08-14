@@ -342,5 +342,6 @@ body
 .tab-panel[hidden] 
 {
     display: none;
+    transition: display 1s ease;
 }
 
