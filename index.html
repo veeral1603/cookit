@@ -92,6 +92,7 @@
         </section>
 
         <section class="section tabs-section">
+
             <div class="tabs-container">
                 <button class="tab-btn has-state" data-selected="true" tabindex="0" role="tab" id="tab-1" data-tab="1">Breakfast</button>
                 <button class="tab-btn has-state" data-selected="false" tabindex="-1" role="tab" id="tab-2" data-tab="2">Lunch</button>
@@ -100,14 +101,86 @@
                 <button class="tab-btn has-state" data-selected="false" tabindex="-1" role="tab" id="tab-5" data-tab="5">Teatime</button>
             </div>
 
-            <div class="tab-panel" role="tabpanel" id="panel-1" tabindex="0" data-tab-panel data-panel="1">Breakfast</div>
-            <div class="tab-panel" role="tabpanel" id="panel-2" tabindex="0" data-tab-panel data-panel="2" hidden>Lunch</div>
-            <div class="tab-panel" role="tabpanel" id="panel-3" tabindex="0" data-tab-panel data-panel="3" hidden>Dinner</div>
-            <div class="tab-panel" role="tabpanel" id="panel-4" tabindex="0" data-tab-panel data-panel="4" hidden>Snack</div>
-            <div class="tab-panel" role="tabpanel" id="panel-5" tabindex="0" data-tab-panel data-panel="5" hidden>Teatime</div>
+            <div class="tab-panel" role="tabpanel" id="panel-1" tabindex="0" data-tab-panel data-panel="1">
+
+                <div class="grid-list">
+
+                    <div class="result-card">
+                        <div class="image-holder">
+                            <img src="Assets/Food/Food.jpg" width="200px" height="200px" class="result-card-image" >
+                        </div>
+
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="" class="card-title-link">Recipe Name</a>
+                            </h2>
+
+                            <div class="meta-wrapper">
+                                <div class="meta-item">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                    <span class="meta-label">2 Minutes</span>
+                                </div>
+
+                                <button class="bookmark-btn removed">
+                                    <span class="material-symbols-outlined bookmark-add">bookmark_add</span>
+                                    <span class="material-symbols-outlined bookmark">bookmark</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+        
+                    <div class="result-card">
+                        <div class="image-holder">
+                            <img src="Assets/Food/Food.jpg" width="200px" height="200px" class="result-card-image" >
+                        </div>
+
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <a href="" class="card-title-link">Recipe Name</a>
+                            </h2>
+
+                            <div class="meta-wrapper">
+                                <div class="meta-item">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                    <span class="meta-label">2 Minutes</span>
+                                </div>
+
+                                <button class="bookmark-btn removed">
+                                    <span class="material-symbols-outlined bookmark-add">bookmark_add</span>
+                                    <span class="material-symbols-outlined bookmark">bookmark</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+                <a href="#" class="show-more-btn">Show More</a>
+
+            </div>
+
+            <div class="tab-panel" role="tabpanel" id="panel-2" tabindex="0" data-tab-panel data-panel="2" hidden>
+                Lunch
+            </div>
+
+            <div class="tab-panel" role="tabpanel" id="panel-3" tabindex="0" data-tab-panel data-panel="3" hidden>
+                Dinner
+            </div>
+
+            <div class="tab-panel" role="tabpanel" id="panel-4" tabindex="0" data-tab-panel data-panel="4" hidden>
+                Snack
+            </div>
+
+            <div class="tab-panel" role="tabpanel" id="panel-5" tabindex="0" data-tab-panel data-panel="5" hidden>
+                Teatime
+            </div>
 
 
         </section>
+
+        
 
     </article>
 
