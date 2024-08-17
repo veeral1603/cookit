@@ -157,6 +157,8 @@ body
     background-color: var(--mobile-nav-background-color);
     z-index: 4;
     box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .mobile-nav-list 
@@ -601,6 +603,14 @@ body
 
 }
 
+
+/* Tags Section  */
+
+.tags-section .section-heading 
+{
+    font-size: 18px;
+    font-weight: 600;
+}
  /* Media Queries  */
 
  @media screen and (min-width: 576px)
