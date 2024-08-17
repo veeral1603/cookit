@@ -2,7 +2,8 @@
 
 :root
 {
-    --primary-color: #ff6b16fd;;
+    --primary-color: #ff6b16fd;
+    --secondary-color: #ffeaddfd;
     --background-color: white;
     --sekelton-color: #c2c2c2;
 
@@ -154,7 +155,7 @@ body
     padding-block: 8px;
     background-color: var(--mobile-nav-background-color);
     z-index: 4;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px -5px 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 10px;
 }
 
 .mobile-nav-list 
@@ -197,6 +198,7 @@ body
     
 }
 /* Main  */
+
 
 
 /* .section 
@@ -543,6 +545,60 @@ body
  }
 
 
+/* Slider Container  */
+
+.section-heading {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.slider-section
+{
+    margin-block-start: 16px;
+}
+
+.slider 
+{
+    --gap: 8px;
+    position: relative;
+    overflow-x: auto;
+    padding-block: 10px;
+    scroll-snap-type: inline mandatory;
+}
+
+.slider::-webkit-scrollbar { height: 4px;}
+
+.slider::-webkit-scrollbar-thumb { background-color: transparent;}
+
+.slider:where(:hover , :focus-within)::-webkit-scrollbar-thumb { background-color: var(--black-alpha-10);}
+
+
+.slider-wrapper 
+{
+    display: flex;
+    align-items: stretch;
+    gap: var(--gap);
+}
+
+.slider-item 
+{
+    min-width: calc(50% - 4px);
+    scroll-snap-align: start;
+}
+
+.load-more-card 
+{
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    border: 1px solid var(--outline);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+}
 
  /* Media Queries  */
 
