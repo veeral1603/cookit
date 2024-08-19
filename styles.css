@@ -226,6 +226,11 @@ body
     
 }
 
+article.container 
+{
+    animation: fade-in 500ms forwards;
+}
+
 /* Hero Section  */
 
 .hero-section
@@ -661,6 +666,7 @@ body
 .footer .container a
 {
     color: var(--primary-color);
+    font-weight: 500;
 }
 .edamam 
 {

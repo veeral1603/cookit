@@ -4,23 +4,30 @@ import * as route from "./route.js";
 import * as api from "./api.js";
 import * as home from "./home.js";
 
-// Home Search
+// Mobile Navigation (To be done using route later)
 
-// Meal Tabs 
-const mealTabsContainer = document.querySelector(".tabs-container");
-const tabBtns = document.querySelectorAll(".tab-btn");
-const tabPanels = document.querySelectorAll(".tab-panel");
+const mobileNavContainer = document.querySelector(".mobile-nav");
+const mobileNavBtns = document.querySelectorAll(".mobile-nav-list li");
+const contentContainers = document.querySelectorAll("article.container");
 
-mealTabsContainer.addEventListener("click" , function(e){
-    if(!e.target.classList.contains("tab-btn")) return;
+
+
+mobileNavContainer.addEventListener("click" , function(e){
     
-    tabBtns.forEach(btn => btn.setAttribute("data-selected", "false"));
-    e.target.setAttribute("data-selected" , "true");
-    let tabNumber = e.target.dataset.tab;
+    if (e.target.classList.contains("mobile-nav-list")) return
 
-    tabPanels.forEach(panel => {
-        panel.setAttribute("hidden", "");
-        
-        if(panel.dataset.panel === tabNumber) panel.removeAttribute("hidden");
+    mobileNavBtns.forEach(btn => {
+        btn.classList.remove("active");
     });
+
+    e.target.closest(".list-item").classList.add("active");
+
+    let clicked = e.target.closest(".list-item").querySelector(".nav-label").innerHTML.toLowerCase()
+    let currentTab = document.querySelector(`[data-${clicked}]`);
+
+    contentContainers.forEach(cont => { cont.setAttribute("hidden" , "")});
+    currentTab.removeAttribute("hidden");
+
+
 });
+
