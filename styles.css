@@ -71,6 +71,7 @@ button
     cursor: pointer;
 }
 
+
 body 
 {
     font-family: "Poppins" , sans-serif;
@@ -231,6 +232,8 @@ article.container
     animation: fade-in 500ms forwards;
 }
 
+
+
 /* Hero Section  */
 
 .hero-section
@@ -247,6 +250,17 @@ article.container
 
     height: 400px;
     
+}
+
+.saved-tab .hero-section
+{
+    background-image: url("Assets/Hero/1.jpg");
+    height: 200px;
+}
+
+.saved-tab .hero-section  .hero-section-content .hero-text
+{
+    gap: 10px;
 }
 
 .hero-section::before 
@@ -652,6 +666,13 @@ article.container
 
 /* Footer  */
 
+.sticky
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
 .footer .container 
 {
     display: flex;
@@ -678,6 +699,37 @@ article.container
 .edamam img
 {
     height: 30px;
+}
+
+
+/* Saved Recipes Page  */
+
+.saved-section .section-heading 
+{
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+.saved-section .section-paragraph 
+{
+    
+    font-size: 12px;
+}
+.saved-section .grid-list 
+{
+    margin-block-start: 20px;
+}
+.none-saved
+{
+    margin-block: 30px;
+}
+
+.none-saved h2
+{
+
+    text-align: center;
+    color: #8b8b8b;
 }
 
  /* Media Queries  */

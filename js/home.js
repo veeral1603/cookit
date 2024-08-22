@@ -1,6 +1,17 @@
 "use script";
 
+import * as api from "./api.js";
+
 // Home Search
+
+const homeSearchInput = document.querySelector("[data-homeSearchInput]");
+const homeSearchBtn = document.querySelector("[data-homeSearchBtn]");
+
+const printData = function (data) {console.log(data);}
+
+homeSearchBtn.addEventListener("click" , function(){
+    api.fetchData(homeSearchInput.value, printData);
+});
 
 // Meal Tabs 
 const mealTabsContainer = document.querySelector(".tabs-container");
