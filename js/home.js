@@ -1,6 +1,7 @@
 "use script";
 
 import * as api from "./api.js";
+import * as route from "./route.js";
 
 // Home Search
 
@@ -10,7 +11,13 @@ const homeSearchBtn = document.querySelector("[data-homeSearchBtn]");
 const printData = function (data) {console.log(data);}
 
 homeSearchBtn.addEventListener("click" , function(){
-    api.fetchData(homeSearchInput.value, printData);
+    if (homeSearchInput.value){
+        api.fetchData(homeSearchInput.value, printData);
+        route.changeNavTo("recipes");
+        homeSearchInput.value = '';
+    }
+    else {
+    }
 });
 
 // Meal Tabs 

@@ -5,32 +5,20 @@ import * as api from "./api.js";
 import * as home from "./home.js";
 
 
-// Mobile Navigation (To be done using route later)
+// Mobile Navigation 
 
 const mobileNavContainer = document.querySelector(".mobile-nav");
 const mobileNavBtns = document.querySelectorAll(".mobile-nav-list li");
 const contentContainers = document.querySelectorAll("article.container");
 
 
-
 mobileNavContainer.addEventListener("click" , function(e){
     
     if (e.target.classList.contains("mobile-nav-list") || e.target.classList.contains("mobile-nav")) return;
 
-    mobileNavBtns.forEach(btn => {
-        btn.classList.remove("active");
-    });
+    const tab = `${e.target.closest(".list-item").querySelector(".nav-label").innerHTML.toLowerCase()}`;
 
-    e.target.closest(".list-item").classList.add("active");
-
-    let clicked = e.target.closest(".list-item").querySelector(".nav-label").innerHTML.toLowerCase()
-    let currentTab = document.querySelector(`[data-${clicked}]`);
-
-    contentContainers.forEach(cont => { cont.setAttribute("hidden" , "")});
-    currentTab.removeAttribute("hidden");
-
-    adjustFooter();
-    scrollToTop();
+    route.changeNavTo(tab);
 
 });
 
@@ -52,7 +40,7 @@ export const adjustFooter = function(){
 
 // Scroll to top 
 
-const scrollToTop = function(){
+export const scrollToTop = function(){
     window.scrollTo(0, 0);
 };
 
