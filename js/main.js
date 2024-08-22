@@ -15,7 +15,7 @@ const contentContainers = document.querySelectorAll("article.container");
 
 mobileNavContainer.addEventListener("click" , function(e){
     
-    if (e.target.classList.contains("mobile-nav-list")) return
+    if (e.target.classList.contains("mobile-nav-list") || e.target.classList.contains("mobile-nav")) return;
 
     mobileNavBtns.forEach(btn => {
         btn.classList.remove("active");
