@@ -3,6 +3,7 @@
 import * as route from "./route.js";
 import * as api from "./api.js";
 import * as home from "./home.js";
+import * as recipes from "./recipes.js";
 
 
 // Mobile Navigation 
@@ -10,6 +11,7 @@ import * as home from "./home.js";
 const mobileNavContainer = document.querySelector(".mobile-nav");
 const mobileNavBtns = document.querySelectorAll(".mobile-nav-list li");
 const contentContainers = document.querySelectorAll("article.container");
+
 
 
 mobileNavContainer.addEventListener("click" , function(e){

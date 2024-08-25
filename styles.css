@@ -732,6 +732,89 @@ article.container
     color: #8b8b8b;
 }
 
+/* Recipes Page  */
+
+.search-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.search-section .search-wrapper
+
+{
+    width: 100%;
+    border: 2px solid var(--outline);
+    background-color: transparent;
+    position: relative;
+}
+
+.search-section .search-input
+{
+    font-size: 14px;
+    
+}
+
+.search-section .search-label 
+{
+    position: absolute;
+    margin-inline-start: 10px;
+    padding-inline: 5px;
+    color: #333;
+    font-size: 14px;
+    background-color: var(--background-color);
+    transition: 0.3s ease;
+    z-index: 11 ;
+    transform: translate(-10px , -24px);
+}
+
+.filter-wrapper
+{
+    width: 100%;
+}
+
+.filter-wrapper .container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 10px;
+}
+
+.filter-wrapper .container .page-heading
+{
+    color: #333;
+    font-size: 16px;
+}
+
+.filter-wrapper .container .filter-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    background-color: var(--black-alpha-10);
+    border-radius: 4px;
+}
+
+.filter-wrapper .filters
+{
+    
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+    border-radius: 8px;
+}
+
+.filter-wrapper .filters.active
+{
+    max-height: 500px;
+}
+
  /* Media Queries  */
 
  @media screen and (min-width: 576px)
