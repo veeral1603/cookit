@@ -801,13 +801,21 @@ article.container
     border-radius: 4px;
 }
 
+.filter-row 
+{
+    border-block-end: 1px solid var(--outline);
+}
+
 .filter-wrapper .filters
 {
     
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1s ease;
-    border-radius: 8px;
+    padding-inline: 10px;
+    transition: max-height 0.5s ease;
+    border-radius: 4px;
+    
+    position: relative;
 }
 
 .filter-wrapper .filters.active
@@ -815,6 +823,77 @@ article.container
     max-height: 500px;
 }
 
+.filter-wrapper .filters h3
+{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.filter-row 
+{
+    padding-block: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.filter-wrapper .filter-close-container{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.filter-title-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+}
+
+.filter-title 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.filter-row .filter-title h2
+{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.filter-content
+{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s ease;
+
+}
+
+.filter-content.active 
+{
+    max-height: 100px;
+}
+
+.filter-row .icon 
+{
+    transition: transform 0.5s ease;
+}
+
+.filter-row .icon.active
+{
+    transform: rotate(180deg);
+}
+
+
+.recipes-tab .grid-list 
+{
+    margin-block-start: 20px;
+}
  /* Media Queries  */
 
  @media screen and (min-width: 576px)
