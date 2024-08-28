@@ -596,9 +596,7 @@ article.container
 
 .slider::-webkit-scrollbar { height: 4px;}
 
-.slider::-webkit-scrollbar-thumb { background-color: var(--black-alpha-10);}
-
-.slider:where(:hover , :focus-within)::-webkit-scrollbar-thumb { background-color: var(--black-alpha-20);}
+.slider::-webkit-scrollbar-thumb { background-color: var(--black-alpha-20);}
 
 
 .slider-wrapper 
@@ -787,7 +785,8 @@ article.container
 .filter-wrapper .container .page-heading
 {
     color: #333;
-    font-size: 16px;
+    font-size: 11px;    /*Edit Later*/
+    
 }
 
 .filter-wrapper .container .filter-btn
@@ -834,9 +833,14 @@ article.container
     padding-block: 10px;
     display: flex;
     justify-content: center;
-    gap: 5px;
+    
     cursor: pointer;
     flex-direction: column;
+}
+
+.filter-row .filter-icon 
+{
+    font-size: 20px;
 }
 
 .filter-wrapper .filter-close-container{
@@ -862,8 +866,8 @@ article.container
 }
 .filter-row .filter-title h2
 {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .filter-content
@@ -876,7 +880,7 @@ article.container
 
 .filter-content.active 
 {
-    max-height: 100px;
+    max-height: 200px;
 }
 
 .filter-row .icon 
@@ -892,7 +896,59 @@ article.container
 
 .recipes-tab .grid-list 
 {
-    margin-block-start: 20px;
+    margin-block-start: 0px;
+}
+
+.filter-action-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 20px;
+    gap: 10px;
+}
+
+.filter-action-container .filter-action
+{
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    flex: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 10px 10px;
+    border-radius: 6px;
+}
+
+.filter-action-container .filter-action:last-child
+{
+    color: #333;
+    background-color: transparent;
+}
+
+.filter-content .filter-list
+{
+    padding: 8px 10px;
+}
+
+.filter-content .filter-list .list-item 
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.filter-content .filter-list .list-item:not(:last-child)
+{
+    margin-block-end: 5px;
+}
+
+.filter-content .filter-list input 
+{
+    margin-inline-end: 5px;
+}
+.filter-content .filter-list .filter-label
+{
+    font-size: 12px;
 }
  /* Media Queries  */
 

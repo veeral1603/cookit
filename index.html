@@ -721,7 +721,7 @@
                     <a href="" class="btn-tag">High-Fiber</a>
                     <a href="" class="btn-tag">High-Protein</a>
                     <a href="" class="btn-tag">Low-Carb</a>
-                    <a href="" class="btn-tag">Low-Protein</a>
+                    <a href="" class="btn-tag">Low-Fat</a>
                     <a href="" class="btn-tag">Low-Sodium</a>
 
                     <a href="" class="btn-tag">Alcohol-Free</a>
@@ -790,16 +790,13 @@
                     </div>
 
                     <div class="filters" data-filters>
-                        <h3>Filters</h3>
 
-                        <div class="filter-close-container" data-filterCloseBtn>
-                            <button class="filter-close-btn"><span class="material-symbols-outlined">close</span></button>
-                        </div>
+                        
 
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
-                                    <span class="material-symbols-outlined">restaurant</span>
+                                    <span class="material-symbols-outlined filter-icon">restaurant</span>
                                     <h2>Diet</h2>
                                 </div>
 
@@ -807,14 +804,41 @@
                             </div>
 
                             <div class="filter-content" >
-                                Filter Content
+                                <ul class="filter-list">
+
+                                    <li class="list-item">
+                                        <input type="checkbox" value="balanced" id="diet-filter-1">
+                                        <label for="diet-filter-1" class="filter-label">Balanced</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="high-fiber" id="diet-filter-2">
+                                        <label for="diet-filter-2" class="filter-label">High Fiber</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="high-protein" id="diet-filter-3">
+                                        <label for="diet-filter-3" class="filter-label">High Protein</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="low-fat" id="diet-filter-4">
+                                        <label for="diet-filter-4" class="filter-label">Low Fat</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="low-carb" id="diet-filter-5">
+                                        <label for="diet-filter-5" class="filter-label">Low Carb</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="low-sodium" id="diet-filter-6">
+                                        <label for="diet-filter-6" class="filter-label">Low Sodium</label>
+                                    </li>
+                                    
+                                </ul>
                             </div>
                         </div>
 
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
-                                    <span class="material-symbols-outlined">favorite</span>
+                                    <span class="material-symbols-outlined filter-icon ">favorite</span>
                                     <h2>Health</h2>
                                 </div>
 
@@ -829,8 +853,61 @@
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
-                                    <span class="material-symbols-outlined">fastfood</span>
+                                    <span class="material-symbols-outlined filter-icon ">fastfood</span>
                                     <h2>Meal Type</h2>
+                                </div>
+
+                                <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
+                            </div>
+
+                            <div class="filter-content" >
+                                <ul class="filter-list">
+
+                                    <li class="list-item">
+                                        <input type="checkbox" value="balanced" id="meal-filter-1">
+                                        <label for="meal-filter-1" class="filter-label">Breakfast</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="lunch" id="meal-filter-2">
+                                        <label for="meal-filter-2" class="filter-label">Lunch</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="dinner" id="meal-filter-3">
+                                        <label for="meal-filter-3" class="filter-label">Dinner</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="snacks" id="meal-filter-4">
+                                        <label for="meal-filter-4" class="filter-label">Snacks</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="teatime" id="meal-filter-5">
+                                        <label for="meal-filter-5" class="filter-label">Tea Time</label>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="filter-row">
+                            <div class="filter-title-container">
+                                <div class="filter-title">
+                                    <span class="material-symbols-outlined filter-icon ">ramen_dining</span>
+                                    <h2>Cuisine Type</h2>
+                                </div>
+
+                                <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
+                            </div>
+
+                            <div class="filter-content" >
+                                
+                            </div>
+                        </div>
+
+                        <div class="filter-row">
+                            <div class="filter-title-container">
+                                <div class="filter-title">
+                                    <span class="material-symbols-outlined filter-icon ">schedule</span>
+                                    <h2>Cooking Time</h2>
                                 </div>
 
                                 <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
@@ -844,8 +921,8 @@
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
-                                    <span class="material-symbols-outlined">ramen_dining</span>
-                                    <h2>Cuisine Type</h2>
+                                    <span class="material-symbols-outlined filter-icon ">bolt</span>
+                                    <h2>Calories</h2>
                                 </div>
 
                                 <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
@@ -856,7 +933,11 @@
                             </div>
                         </div>
 
-                    
+                        <div class="filter-action-container">
+                            <button class="filter-action" data-apply-filters>Apply Filters</button>
+                            <button class="filter-action" data-clear-filters>Clear</button>
+                        </div>
+
                     </div>
 
                 </div>
