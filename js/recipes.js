@@ -39,6 +39,14 @@ filterRowsTitle.forEach((row) => {
 
     row.addEventListener("click" , function(e){
     
+        let siblingRows = Array.from(row.parentNode.parentNode.children).filter(sibling => sibling !== row.parentNode && !sibling.classList.contains("filter-action-container"));
+    
+        
+        siblingRows.forEach(sibling => {
+            sibling.querySelector(".filter-content").classList.remove("active");
+            sibling.querySelector(".icon").classList.remove("active");
+        });
+
         row.closest(".filter-row").querySelector(".filter-content").classList.toggle("active");
         row.closest(".filter-row").querySelector(".icon").classList.toggle("active");
     });

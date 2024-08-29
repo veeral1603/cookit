@@ -80,6 +80,8 @@ body
     padding-block-end: 66px;
 }
 
+
+
 @keyframes skeleton {
     0% {opacity: 0.3}
 
@@ -819,7 +821,7 @@ article.container
 
 .filter-wrapper .filters.active
 {
-    max-height: 1600px;
+    max-height: 750px;
 }
 
 .filter-wrapper .filters h3
@@ -953,6 +955,15 @@ article.container
 .filter-content .filter-list .filter-label
 {
     font-size: 12px;
+}
+
+.recipes-tab .message-section
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    padding: 50% 0;
 }
  /* Media Queries  */
 

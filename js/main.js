@@ -48,8 +48,23 @@ export const scrollToTop = function(){
     window.scrollTo(0, 0);
 };
 
+
+// Recipe details page 
+
+const openDetails = function(){
+
+};
+
+
 // Error 404 
 
 export const error404 = function () {
     console.log("Error 404");
+};
+
+
+// Render  Recipes 
+
+export const renderRecipesResults = function(){
+
 };
