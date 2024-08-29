@@ -32,10 +32,7 @@ export const closeFiltersRows = function() {
 }
 
 
-
 // Mobile Filters  
-
-
 
 filterRowsTitle.forEach((row) => {
 
