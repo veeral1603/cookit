@@ -791,7 +791,50 @@
 
                     <div class="filters" data-filters>
 
-                        
+                        <div class="filter-row">
+                            <div class="filter-title-container">
+                                <div class="filter-title">
+                                    <span class="material-symbols-outlined filter-icon ">schedule</span>
+                                    <h2>Cooking Time</h2>
+                                </div>
+
+                                <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
+                            </div>
+
+                            <div class="filter-content" >
+                                <ul class="filter-list">
+                                    <li class="list-item">
+                                        <input type="checkbox" value="0-10" id="time-filter-1">
+                                        <label for="time-filter-1" class="filter-label">0-10 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="10-20" id="time-filter-2">
+                                        <label for="time-filter-2" class="filter-label">10-20 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="20-30" id="time-filter-3">
+                                        <label for="time-filter-3" class="filter-label">20-30 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="30-40" id="time-filter-4">
+                                        <label for="time-filter-4" class="filter-label">30-40 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="40-50" id="time-filter-5">
+                                        <label for="time-filter-5" class="filter-label">40-50 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="50-60" id="time-filter-6">
+                                        <label for="time-filter-6" class="filter-label">50-60 minutes</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="60%2B" id="time-filter-7">
+                                        <label for="time-filter-7" class="filter-label">&gt; 1 hour</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
 
                         <div class="filter-row">
                             <div class="filter-title-container">
@@ -846,7 +889,155 @@
                             </div>
 
                             <div class="filter-content" >
-                                Filter Content
+                                <div>
+                                    <ul class="filter-list">
+
+                                        <li class="list-item">
+                                            <input type="checkbox" value="alcohol-free" id="health-filter-1">
+                                            <label for="health-filter-1" class="filter-label">Alcohol-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="celery-free" id="health-filter-2">
+                                            <label for="health-filter-2" class="filter-label">Celery-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="crustacean-free" id="health-filter-3">
+                                            <label for="health-filter-3" class="filter-label">Crustacean-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="egg-free" id="health-filter-4">
+                                            <label for="health-filter-4" class="filter-label">Dairy-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="dash" id="health-filter-5">
+                                            <label for="health-filter-5" class="filter-label">DASH</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="egg-free" id="health-filter-6">
+                                            <label for="health-filter-6" class="filter-label">Egg-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="fish-free" id="health-filter-7">
+                                            <label for="health-filter-7" class="filter-label">Fish-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="fodmap-free" id="health-filter-8">
+                                            <label for="health-filter-8" class="filter-label">Fodmap-free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="gluten-free" id="health-filter-9">
+                                            <label for="health-filter-9" class="filter-label">Gluten-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="immuno-supportive" id="health-filter-10">
+                                            <label for="health-filter-10" class="filter-label">Immuno-Supportive</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="keto-friendly" id="health-filter-11">
+                                            <label for="health-filter-10" class="filter-label">Keto-Friendly</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="kidney-friendly" id="health-filter-12">
+                                            <label for="health-filter-10" class="filter-label">Kidney-Friendly</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="kosher" id="health-filter-13">
+                                            <label for="health-filter-10" class="filter-label">Kosher</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="low-potassium" id="health-filter-14">
+                                            <label for="health-filter-14" class="filter-label">Low-Potassium</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="low-sugar" id="health-filter-15">
+                                            <label for="health-filter-15" class="filter-label">Low-Sugar</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="lupine-free" id="health-filter-16">
+                                            <label for="health-filter-16" class="filter-label">Lupine-Free</label>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <ul class="filter-list">
+                                        <li class="list-item">
+                                            <input type="checkbox" value="mediterranean" id="health-filter-17">
+                                            <label for="health-filter-17" class="filter-label">Mediterranean</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="mollusk-free" id="health-filter-18">
+                                            <label for="health-filter-18" class="filter-label">Mollusk-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="no-oil-added" id="health-filter-19">
+                                            <label for="health-filter-19" class="filter-label">No Oil Added</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="paleo" id="health-filter-20">
+                                            <label for="health-filter-20" class="filter-label">Paleo</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="peanut-free" id="health-filter-21">
+                                            <label for="health-filter-21" class="filter-label">Peanut-Free</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="pascatarian-free" id="health-filter-22">
+                                            <label for="health-filter-22" class="filter-label">Pascatarian</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="pork-free" id="health-filter-23">
+                                            <label for="health-filter-23" class="filter-label">Pork-Free</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="red-meat-free" id="health-filter-24">
+                                            <label for="health-filter-24" class="filter-label">Red-Meat-Free</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="sesame-free" id="health-filter-25">
+                                            <label for="health-filter-25" class="filter-label">Sesame-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="shellfish-free" id="health-filter-26">
+                                            <label for="health-filter-26" class="filter-label">Shellfish-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="soy-free" id="health-filter-27">
+                                            <label for="health-filter-27" class="filter-label">Soy-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="sugar-conscious" id="health-filter-28">
+                                            <label for="health-filter-28" class="filter-label">Sugar-Conscious</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="tree-nut-free" id="health-filter-29">
+                                            <label for="health-filter-29" class="filter-label">Tree-Nut-Free</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="vegan" id="health-filter-30">
+                                            <label for="health-filter-30" class="filter-label">Vegan</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="vegetarian" id="health-filter-31">
+                                            <label for="health-filter-31" class="filter-label">Vegetarian</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="wheat-free" id="health-filter-32">
+                                            <label for="health-filter-32" class="filter-label">Wheat-Free</label>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -854,7 +1045,7 @@
                             <div class="filter-title-container">
                                 <div class="filter-title">
                                     <span class="material-symbols-outlined filter-icon ">fastfood</span>
-                                    <h2>Meal Type</h2>
+                                    <h2>Meal</h2>
                                 </div>
 
                                 <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
@@ -891,33 +1082,105 @@
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
-                                    <span class="material-symbols-outlined filter-icon ">ramen_dining</span>
-                                    <h2>Cuisine Type</h2>
+                                    <span class="material-symbols-outlined filter-icon ">public</span>
+                                    <h2>Cuisine</h2>
                                 </div>
 
                                 <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
                             </div>
 
                             <div class="filter-content" >
-                                
-                            </div>
-                        </div>
 
-                        <div class="filter-row">
-                            <div class="filter-title-container">
-                                <div class="filter-title">
-                                    <span class="material-symbols-outlined filter-icon ">schedule</span>
-                                    <h2>Cooking Time</h2>
+                                <div>
+                                    <ul class="filter-list">
+                                        <li class="list-item">
+                                            <input type="checkbox" value="american" id="cuisine-filter-1">
+                                            <label for="cuisine-filter-1" class="filter-label">American</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="asian" id="cuisine-filter-2">
+                                            <label for="cuisine-filter-2" class="filter-label">Asian</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="british" id="cuisine-filter-3">
+                                            <label for="cuisine-filter-3" class="filter-label">British</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="caribbean" id="cuisine-filter-4">
+                                            <label for="cuisine-filter-4" class="filter-label">Caribbean</label>
+                                        </li>
+                                        
+                                        <li class="list-item">
+                                            <input type="checkbox" value="central%20europe" id="cuisine-filter-5">
+                                            <label for="cuisine-filter-5" class="filter-label">Central Europe</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="chinese" id="cuisine-filter-6">
+                                            <label for="cuisine-filter-6" class="filter-label">Chinese</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="eastern%20europe" id="cuisine-filter-7">
+                                            <label for="cuisine-filter-7" class="filter-label">Eastern Europe</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="french" id="cuisine-filter-8">
+                                            <label for="cuisine-filter-8" class="filter-label">French</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="indian" id="cuisine-filter-9">
+                                            <label for="cuisine-filter-9" class="filter-label">Indian</label>
+                                        </li>
+                                    </ul>
                                 </div>
 
-                                <span class="material-symbols-outlined icon">keyboard_arrow_down</span>
-                            </div>
-
-                            <div class="filter-content" >
-                                Filter Content
+                                <div>
+                                    <ul class="filter-list">
+                                    
+                                        <li class="list-item">
+                                            <input type="checkbox" value="italian" id="cuisine-filter-10">
+                                            <label for="cuisine-filter-10" class="filter-label">Italian</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="japanese" id="cuisine-filter-11">
+                                            <label for="cuisine-filter-11" class="filter-label">Japanese</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="kosher" id="cuisine-filter-12">
+                                            <label for="cuisine-filter-12" class="filter-label">Kosher</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="mediterranean" id="cuisine-filter-13">
+                                            <label for="cuisine-filter-13" class="filter-label">Mediterranean</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="mexican" id="cuisine-filter-14">
+                                            <label for="cuisine-filter-14" class="filter-label">Mexican</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="middle%20eastern" id="cuisine-filter-15">
+                                            <label for="cuisine-filter-15" class="filter-label">Middle Eastern</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="nordic" id="cuisine-filter-16">
+                                            <label for="cuisine-filter-16" class="filter-label">Nordic</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="south%20american" id="cuisine-filter-17">
+                                            <label for="cuisine-filter-17" class="filter-label">South American</label>
+                                        </li>
+                                        <li class="list-item">
+                                            <input type="checkbox" value="south%20east%20asian" id="cuisine-filter-18">
+                                            <label for="cuisine-filter-18" class="filter-label">South East Asian</label>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+                               
                             </div>
                         </div>
 
+                        
                         <div class="filter-row">
                             <div class="filter-title-container">
                                 <div class="filter-title">
@@ -929,7 +1192,37 @@
                             </div>
 
                             <div class="filter-content" >
-                                Filter Content
+                                <ul class="filter-list">
+                                    <li class="list-item">
+                                        <input type="checkbox" value="0-50" id="cal-filter-1">
+                                        <label for="cal-filter-1" class="filter-label">&lt; 50 calories</label>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <input type="checkbox" value="50-100" id="cal-filter-2">
+                                        <label for="cal-filter-2" class="filter-label">50-100 calories</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="100-200" id="cal-filter-3">
+                                        <label for="cal-filter-3" class="filter-label">100-200 calories</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="200-300" id="cal-filter-4">
+                                        <label for="cal-filter-4" class="filter-label">200-300 calories</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="300-400" id="cal-filter-5">
+                                        <label for="cal-filter-5" class="filter-label">300-400 calories</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="400-500" id="cal-filter-6">
+                                        <label for="cal-filter-6" class="filter-label">400-500 calories</label>
+                                    </li>
+                                    <li class="list-item">
+                                        <input type="checkbox" value="500%2B" id="cal-filter-7">
+                                        <label for="cal-filter-7" class="filter-label">&gt; 500 calories</label>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 

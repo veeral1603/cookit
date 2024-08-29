@@ -1,5 +1,7 @@
 "use script";
 
+const filterRowsTitle = document.querySelectorAll(".filter-title-container"); //Filter  Rows 
+
 //Mobile Filter Button 
 
 const filterBtn = document.querySelector("[data-filterBtn]");
@@ -7,26 +9,36 @@ const filtersContainer = document.querySelector("[data-filters]");
 
 const openFilters = function(){
     filtersContainer.classList.toggle("active");
+    closeFiltersRows();
 };
 
 filterBtn.addEventListener("click" , openFilters)
 
-// Mobile Filter Close Button 
+// Close Filter Container 
 
-// const filterCloseBtn = document.querySelector("[data-filterCloseBtn]");
-
-const closeFilters = function() {
+export const closeFilters = function(){
     filtersContainer.classList.remove("active");
+};
+
+
+// Close Filter Rows
+
+export const closeFiltersRows = function() {
+
+    filterRowsTitle.forEach(row => {
+        row.closest(".filter-row").querySelector(".filter-content").classList.remove("active");
+        row.closest(".filter-row").querySelector(".icon").classList.remove("active");
+    });
 }
 
-// filterCloseBtn.addEventListener("click" , closeFilters);
 
 
 // Mobile Filters  
 
-const filterRowsTitle = document.querySelectorAll(".filter-title-container");
+
 
 filterRowsTitle.forEach((row) => {
+
 
     row.addEventListener("click" , function(e){
     

@@ -819,7 +819,7 @@ article.container
 
 .filter-wrapper .filters.active
 {
-    max-height: 500px;
+    max-height: 1600px;
 }
 
 .filter-wrapper .filters h3
@@ -875,12 +875,14 @@ article.container
     max-height: 0px;
     overflow: hidden;
     transition: max-height .5s ease;
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(0, 50%));
 
 }
 
 .filter-content.active 
 {
-    max-height: 200px;
+    max-height: 400px;
 }
 
 .filter-row .icon 
@@ -942,9 +944,11 @@ article.container
     margin-block-end: 5px;
 }
 
-.filter-content .filter-list input 
+.filter-content .filter-list input
 {
     margin-inline-end: 5px;
+    box-shadow:  1px 1px 6px rgba(0, 0, 0, 0.2);
+
 }
 .filter-content .filter-list .filter-label
 {

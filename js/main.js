@@ -20,6 +20,8 @@ mobileNavContainer.addEventListener("click" , function(e){
 
     const tab = `${e.target.closest(".list-item").querySelector(".nav-label").innerHTML.toLowerCase()}`;
 
+    recipes.closeFiltersRows();
+    recipes.closeFilters();
     route.changeNavTo(tab);
 
 });
