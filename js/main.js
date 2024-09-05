@@ -6,6 +6,13 @@ import * as home from "./home.js";
 import * as recipes from "./recipes.js";
 import * as details from "./details.js";
 
+const footer = document.querySelector(".footer");
+const header = document.querySelector(".header");
+
+// document.querySelector(
+//   ".main"
+// ).style.height = `calc(100vh - ${header.offsetHeight}px - ${footer.offsetHeight}px)`;
+
 // Navigation
 
 const mobileNavContainer = document.querySelector(".mobile-nav");
@@ -57,7 +64,6 @@ headerBookmarkBtn.addEventListener("click", function () {
 
 // Adjust Footer
 
-const footer = document.querySelector(".footer");
 const body = document.querySelector("body");
 
 export const adjustFooter = function () {

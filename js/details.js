@@ -1,4 +1,4 @@
-'use script';
+"use script";
 
 import { scrollToTop } from "./main.js";
 
@@ -9,24 +9,23 @@ const detailsContainer = document.querySelector("[data-details]");
 const contentContainers = document.querySelectorAll("article.container");
 let currentTab;
 
-resultCards.forEach(card => {
-    card.addEventListener("click" , function(){
-        currentTab = card.closest("article");
+resultCards.forEach((card) => {
+  card.addEventListener("click", function (e) {
+    if (e.target.closest(".bookmark-btn")) return;
 
-        contentContainers.forEach(cont => cont.setAttribute("hidden", ""));
-        detailsContainer.removeAttribute("hidden");
-        scrollToTop();
-    
-    });
+    currentTab = card.closest("article");
+
+    contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
+    detailsContainer.removeAttribute("hidden");
+    scrollToTop();
+  });
 });
 
-// Leading Button 
+// Leading Button
 
 const leadingBtn = document.querySelector("[data-leading-btn]");
 
-leadingBtn.addEventListener("click" , function(){
-    contentContainers.forEach(cont => cont.setAttribute("hidden", ""));
-    currentTab.removeAttribute("hidden");
+leadingBtn.addEventListener("click", function () {
+  contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
+  currentTab.removeAttribute("hidden");
 });
-
-
