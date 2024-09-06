@@ -46,12 +46,6 @@ headerTabsContainer.addEventListener("click", function (e) {
 
   const tab = `${e.target.innerHTML.toLowerCase()}`;
 
-  headerTabsContainer.querySelectorAll(".header-tabs-item").forEach((li) => {
-    li.classList.remove("active");
-  });
-
-  e.target.classList.add("active");
-
   route.changeNavTo(tab);
   recipes.closeFiltersRows();
 });

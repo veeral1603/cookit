@@ -895,7 +895,7 @@ article.container
 
 .filter-wrapper .filters.active
 {
-    max-height: 750px;
+    max-height: 850px;
 }
 
 
@@ -942,7 +942,11 @@ article.container
     transition: max-height .5s ease;
     display: grid;
     grid-template-columns: repeat(auto-fill , minmax(0, 50%));
+}
 
+.filter-content > ul 
+{
+    grid-column: span 2;
 }
 
 .filter-content.active 
