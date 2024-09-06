@@ -5,13 +5,15 @@ import * as api from "./api.js";
 import * as home from "./home.js";
 import * as recipes from "./recipes.js";
 import * as details from "./details.js";
+import * as global from "./global.js";
 
 const footer = document.querySelector(".footer");
 const header = document.querySelector(".header");
 
-
-// Sticky Sidebar on recpies page 
-document.querySelector(".recipes-tab .content-left").style.top = `calc(${header.offsetHeight}px + 0.8rem)`;
+// Sticky Sidebar on recpies page
+document.querySelector(
+  ".recipes-tab .content-left"
+).style.top = `calc(${header.offsetHeight}px + 0.8rem)`;
 
 // Navigation
 

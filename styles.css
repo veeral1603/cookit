@@ -531,7 +531,7 @@ article.container
 
 .result-card .card-body .card-title 
 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -1811,12 +1811,12 @@ article.container
 
     .result-card .card-body .card-title
     {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .result-card .meta-item .meta-label
     {
-        font-size: 14px;
+        font-size: 12px;
     }
     .slider-item 
     {
