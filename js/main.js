@@ -9,9 +9,9 @@ import * as details from "./details.js";
 const footer = document.querySelector(".footer");
 const header = document.querySelector(".header");
 
-// document.querySelector(
-//   ".main"
-// ).style.height = `calc(100vh - ${header.offsetHeight}px - ${footer.offsetHeight}px)`;
+
+// Sticky Sidebar on recpies page 
+document.querySelector(".recipes-tab .content-left").style.top = `calc(${header.offsetHeight}px + 0.8rem)`;
 
 // Navigation
 
@@ -53,6 +53,7 @@ headerTabsContainer.addEventListener("click", function (e) {
   e.target.classList.add("active");
 
   route.changeNavTo(tab);
+  recipes.closeFiltersRows();
 });
 
 headerBookmarkBtn.addEventListener("click", function () {
