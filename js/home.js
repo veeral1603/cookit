@@ -243,5 +243,81 @@ const addSliderContent = function (sliderList) {
   });
 };
 
+// Tags Section
+
+const tags = document.querySelectorAll(".btn-tag");
+const tagsSection = document.querySelector(".tags-section .container");
+
+const addTags = function () {
+  const dietTags = [
+    "Balanced",
+    "High Fiber",
+    "High Protein",
+    "Low Carb",
+    "Low Fat",
+    "Low Sodium",
+  ];
+
+  const healthTags = [
+    "Alcohol Free",
+    "Celery Free",
+    "Crustcean Free",
+    "Dairy Free",
+    "DASH",
+    "Egg Free",
+    "Fish Free",
+    "FODMAP Free",
+    "Gluten Free",
+    "Immuno Supportive",
+    "Keto Friendly",
+    "Kidney Friendly",
+    "Low Potassium",
+    "Low Sugar",
+    "Lupin Free",
+    "Mediterranean",
+    "Mollusk Free",
+    "Mustard Free",
+    "No Oil Added",
+    "Peanut Free",
+    "Pescatarian",
+    "Pork Free",
+    " Red Meat Free",
+    "Sesame Free",
+    "Shellfish Free",
+    "Soy Free",
+    "Sugar Conscious",
+    "Sulfite Free",
+    "Tree Nut Free",
+    "Vegan",
+    "Vegetarian",
+    "Wheat Free",
+  ];
+
+  const tagsContainer = document.createElement("div");
+  tagsContainer.classList.add("tags");
+
+  dietTags.forEach((diet) => {
+    const hash = diet.toLocaleLowerCase().replace(" ", "-");
+    const btn = `<a href="#/&diet=${hash}" class="btn-tag diet-tag">${diet}</a>`;
+
+    tagsContainer.insertAdjacentHTML("beforeend", btn);
+  });
+
+  healthTags.forEach((health) => {
+    const hash = health.toLocaleLowerCase().replace(" ", "-");
+    const btn = `<a href="#/&health=${hash}" class="btn-tag health-tag">${health}</a>`;
+    tagsContainer.insertAdjacentHTML("beforeend", btn);
+  });
+
+  tagsSection.append(tagsContainer);
+};
+
+tagsSection.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("btn-tag")) return;
+
+  route.changeNavTo("recipes");
+});
+
 addTabContent(tabPanels);
 addSliderContent(homeSliders);
+addTags();

@@ -22,6 +22,5 @@ export const fetchData = async function (queries, callback) {
     callback(data);
   } catch (err) {
     console.error(err);
-    alert("An error occured! Please try again in a while.");
   }
 };
