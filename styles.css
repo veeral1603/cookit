@@ -592,20 +592,20 @@ article.container
     animation: skeleton 500ms linear infinite alternate;
  }
 
- .skeleton-card .card-banner 
+ .skeleton-card .card-banner
  {
     width: 100%;
     aspect-ratio: 1/1;
     border-radius: 4px;
  }
- .skeleton-card .card-title 
+ .skeleton-card .card-title
  {
     width: 50%;
     height: 16px;
     margin-block: 8px;
  }
 
- .skeleton-card .card-text 
+ .skeleton-card .card-text
  {
     margin-block: 14px;
     width: 100%;
@@ -656,6 +656,8 @@ article.container
 
 .slider::-webkit-scrollbar-thumb { background-color: var(--black-alpha-20);}
 
+.slider::-webkit-scrollbar-track { background-color: transparent;}
+
 
 .slider-wrapper 
 {
@@ -668,11 +670,19 @@ article.container
 {
     min-width: calc(50% - 4px);
     scroll-snap-align: start;
+    display: flex;
+    align-items: stretch;
+}
+
+.slider-item .skeleton-card
+{
+    width: 100%;
 }
 
 .load-more-card 
 {
     height: 100%;
+    width: 100%;
     background-color: var(--secondary-color);
     border-radius: 4px;
     border: 1px solid var(--outline);

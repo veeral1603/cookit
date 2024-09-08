@@ -97,6 +97,9 @@ const addTabContent = function (panelsList) {
           totalTime,
         } = data.hits[i].recipe;
 
+        const recipeNameCapitalized =
+          recipeName[0].toUpperCase() + recipeName.slice(1);
+
         const card = ` <div class="card result-card">
                             <div class="image-holder">
                                 <img src="${smallImage}" width="200px" height="200px" class="result-card-image" alt="Image">
@@ -105,9 +108,12 @@ const addTabContent = function (panelsList) {
                             <div class="card-body">
                                 <h2 class="card-title">
                                     <a href="" class="card-title-link">${
-                                      recipeName.length > 30
-                                        ? `${recipeName.slice(0, 30)}...`
-                                        : recipeName
+                                      recipeNameCapitalized.length > 30
+                                        ? `${recipeNameCapitalized.slice(
+                                            0,
+                                            30
+                                          )}...`
+                                        : recipeNameCapitalized
                                     }</a>
                                 </h2>
   
@@ -135,9 +141,107 @@ const addTabContent = function (panelsList) {
         panel.innerHTML = "";
         panel.append(gridList);
         panel.append(showMoreBtn);
-      }, 2000);
+      }, 3000);
+    });
+  });
+};
+
+// Sliders in home tab
+
+const homeSliders = document.querySelectorAll(".home-tab .slider");
+
+/**
+ *
+ * @param {NodeList} sliderList List of sliders in home tab
+ */
+
+const addSliderContent = function (sliderList) {
+  sliderList.forEach((slid) => {
+    const skeletonList = `<li class="slider-item">${skeletonResultCard}</li>
+        `;
+    slid.querySelector(".slider-wrapper").innerHTML = skeletonList.repeat(12);
+  });
+
+  sliderList.forEach((slider) => {
+    const cuisineType = slider
+      .closest(".container")
+      .querySelector(".section-heading")
+      .innerHTML.split(" ")[1]
+      .toLowerCase();
+    const query = [`&cuisineType=${cuisineType}`, `&random=true`];
+
+    const showMoreBtn = `<li class="slider-item" data-slider-item>
+                            <a href="#/&cuisineType=${cuisineType}" class="load-more-card has-state">
+                                <span class="load-more-label">Show More</span>
+                                <span class="material-symbols-outlined">navigate_next</span>
+                            </a>
+                        </li>
+    `;
+
+    const sliderWrapper = document.createElement("ul");
+    sliderWrapper.classList.add("slider-wrapper");
+
+    api.fetchData(query, (data) => {
+      for (let i = 0; i < 12; i++) {
+        const {
+          images: {
+            REGULAR: { url: smallImage },
+          },
+          label: recipeName,
+          totalTime,
+        } = data.hits[i].recipe;
+
+        const recipeNameCapitalized =
+          recipeName[0].toUpperCase() + recipeName.slice(1);
+
+        const card = ` <li class="slider-item">
+                            <div class="card result-card">
+                                <div class="image-holder">
+                                    <img src="${smallImage}" width="200px" height="200px" class="result-card-image" >
+                                </div>
+
+                                <div class="card-body">
+                                    <h2 class="card-title">
+                                        <a href="" class="card-title-link">${
+                                          recipeNameCapitalized.length > 30
+                                            ? `${recipeNameCapitalized.slice(
+                                                0,
+                                                30
+                                              )}...`
+                                            : recipeNameCapitalized
+                                        }</a>
+                                    </h2>
+
+                                    <div class="meta-wrapper">
+                                        <div class="meta-item">
+                                            <span class="material-symbols-outlined">schedule</span>
+                                            <span class="meta-label">${
+                                              totalTime || "20+"
+                                            } Minutes</span>
+                                        </div>
+
+                                        <button class="bookmark-btn removed">
+                                            <span class="material-symbols-outlined bookmark-add">bookmark_add</span>
+                                            <span class="material-symbols-outlined bookmark">bookmark</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+        `;
+
+        sliderWrapper.insertAdjacentHTML("afterbegin", card);
+      }
+
+      sliderWrapper.insertAdjacentHTML("beforeend", showMoreBtn);
+      setTimeout(() => {
+        slider.innerHTML = "";
+        slider.append(sliderWrapper);
+      }, 3000);
     });
   });
 };
 
 addTabContent(tabPanels);
+addSliderContent(homeSliders);
