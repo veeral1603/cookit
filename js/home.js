@@ -9,7 +9,6 @@ import * as route from "./route.js";
 const homeSearchInput = document.querySelector("[data-homeSearchInput]");
 const homeSearchBtn = document.querySelector("[data-homeSearchBtn]");
 const recipesSearchInput = document.querySelector("[data-recipesSearchInput]");
-const recipesSearchBtn = document.querySelector("[data-recipesSearchBtn]");
 
 export const printData = function (data) {
   console.log(data);

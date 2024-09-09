@@ -1,6 +1,7 @@
 "use script";
 
 import { fetchData } from "./api.js";
+import { skeletonResultCard } from "./global.js";
 import { printData } from "./home.js";
 import { adjustFooter, scrollToTop } from "./main.js";
 import { renderResults } from "./recipes.js";
@@ -37,6 +38,10 @@ export const changeNavTo = function (tab) {
   scrollToTop();
 };
 
+let recipesResultContainer = document.querySelector(
+  ".recipes-result-container"
+);
+
 const checkHash = function () {
   const hash = window.location.hash.slice(1);
 
@@ -46,8 +51,16 @@ const checkHash = function () {
   } else {
     // Results Page Queries
     let filterQueries = [];
-    let queries = [hash];
+    let queries = [...hash.split("/")];
     console.log(hash);
+
+    recipesResultContainer.innerHTML = `
+    <div class="grid-list">
+        ${skeletonResultCard.repeat(20)}
+    </div>
+    `;
+
+    adjustFooter();
 
     fetchData(queries, function (data) {
       renderResults(data);

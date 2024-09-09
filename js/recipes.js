@@ -1,6 +1,8 @@
 "use script";
 
 import { resultCard, skeletonResultCard } from "./global.js";
+import { adjustFooter } from "./main.js";
+import { changeNavTo } from "./route.js";
 
 const filterRowsTitle = document.querySelectorAll(".filter-title-container"); //Filter  Rows
 
@@ -63,6 +65,21 @@ filterRowsTitle.forEach((row) => {
   });
 });
 
+// Search Input on recipes page
+
+const recipesSearchInput = document.querySelector("[data-recipesSearchInput]");
+const recipesSearchBtn = document.querySelector("[data-recipesSearchBtn]");
+
+recipesSearchBtn.addEventListener("click", function (e) {
+  if (recipesSearchInput.value) {
+    let query = [`&q=${recipesSearchInput.value}`];
+    changeNavTo("recipes");
+
+    window.location.hash = query.join("");
+  } else {
+  }
+});
+
 // Render  Results
 
 let recipesResultContainer = document.querySelector(
@@ -71,19 +88,26 @@ let recipesResultContainer = document.querySelector(
 
 const loadMoreBtn = document.querySelector(".recipes-tab .show-more-btn");
 const loadMoreLoader = document.querySelector("[recipe-loader]");
+const messageContainer = document.querySelector(
+  ".recipes-tab .message-section"
+);
 
 export const renderResults = function (data) {
-  recipesResultContainer.innerHTML = `
-    <div class="grid-list">
-        ${skeletonResultCard.repeat(20)}
-    </div>
-  `;
+  let nextLink;
 
-  let nextLink = data._links.next.href;
-  console.log(nextLink);
+  if (data._links.next) nextLink = data._links.next.href;
+
+  messageContainer.style.display = "none";
 
   const gridList = document.createElement("div");
   gridList.classList.add("grid-list");
+
+  if (data.hits.length === 0) {
+    recipesResultContainer.innerHTML = "";
+    messageContainer.style.display = "flex";
+    adjustFooter();
+    return;
+  }
 
   data.hits.forEach((hit) => {
     const {
@@ -108,7 +132,8 @@ export const renderResults = function (data) {
   setTimeout(() => {
     recipesResultContainer.innerHTML = "";
     recipesResultContainer.append(gridList);
-    loadMoreBtn.style.display = "block";
+    if (data._links.next) loadMoreBtn.style.display = "block";
+    adjustFooter();
   }, 3000);
 
   loadMoreBtn.addEventListener("click", async function () {

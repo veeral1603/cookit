@@ -1064,11 +1064,16 @@ article.container
 
 .recipes-tab .message-section
 {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: #333;
-    padding: 50% 0;
+    margin-block: 80px;
+    display: none;
+    
+}
+
+.recipes-tab .message-section h3 
+{
+    color: #8b8b8b;
+    font-weight: 500;
 }
 
 
