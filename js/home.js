@@ -21,6 +21,8 @@ homeSearchBtn.addEventListener("click", function () {
 
     window.location.hash = query.join("");
     recipesSearchInput.value = homeSearchInput.value;
+    const inputs = document.querySelectorAll(".filter-wrapper input");
+    inputs.forEach((input) => (input.checked = false));
 
     homeSearchInput.value = "";
   } else {

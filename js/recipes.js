@@ -1,7 +1,7 @@
 "use script";
 
 import { resultCard, skeletonResultCard } from "./global.js";
-import { adjustFooter } from "./main.js";
+import { adjustFooter, scrollToTop } from "./main.js";
 import { changeNavTo } from "./route.js";
 
 const filterRowsTitle = document.querySelectorAll(".filter-title-container"); //Filter  Rows
@@ -74,7 +74,8 @@ recipesSearchBtn.addEventListener("click", function (e) {
   if (recipesSearchInput.value) {
     let query = [`&q=${recipesSearchInput.value}`];
     changeNavTo("recipes");
-
+    const inputs = document.querySelectorAll(".filter-wrapper input");
+    inputs.forEach((input) => (input.checked = false));
     window.location.hash = query.join("");
   } else {
   }
@@ -91,6 +92,7 @@ const loadMoreLoader = document.querySelector("[recipe-loader]");
 const messageContainer = document.querySelector(
   ".recipes-tab .message-section"
 );
+const filterWrapper = document.querySelector(".filter-wrapper");
 
 export const renderResults = function (data) {
   let nextLink;
@@ -106,6 +108,7 @@ export const renderResults = function (data) {
   if (data.hits.length === 0) {
     recipesResultContainer.innerHTML = "";
     messageContainer.style.display = "flex";
+    filterWrapper.style.display = "none";
     adjustFooter();
     return;
   }
@@ -132,6 +135,7 @@ export const renderResults = function (data) {
 
   setTimeout(() => {
     recipesResultContainer.innerHTML = "";
+    filterWrapper.style.display = "block";
     recipesResultContainer.append(gridList);
     if (data._links.next.href) loadMoreBtn.style.display = "block";
     adjustFooter();
@@ -191,6 +195,7 @@ applyFilterBtn.addEventListener("click", function (e) {
   window.location.hash = searchQueryString + filterQueryString;
   closeFiltersRows();
   closeFilters();
+  scrollToTop();
 });
 
 clearFilterBtn.addEventListener("click", function () {
@@ -198,6 +203,7 @@ clearFilterBtn.addEventListener("click", function () {
   inputs.forEach((input) => (input.checked = false));
   closeFiltersRows();
   closeFilters();
+  scrollToTop();
 
   window.location.hash = `&q=${recipesSearchInput.value}`;
 });

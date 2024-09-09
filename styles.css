@@ -874,6 +874,8 @@ article.container
 .filter-wrapper
 {
     width: 100%;
+    animation: fade-in 1s forwards;
+    display: none;
 }
 
 .filter-wrapper .container
@@ -1480,6 +1482,10 @@ article.container
         display: none;
     }
 
+    .recipes-tab .grid-list
+    {
+        margin-block-start: 20px;
+    }
     
  }
 
