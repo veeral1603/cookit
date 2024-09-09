@@ -94,6 +94,7 @@ const messageContainer = document.querySelector(
 
 export const renderResults = function (data) {
   let nextLink;
+  loadMoreBtn.style.display = "none";
 
   if (data._links.next) nextLink = data._links.next.href;
 
@@ -132,7 +133,7 @@ export const renderResults = function (data) {
   setTimeout(() => {
     recipesResultContainer.innerHTML = "";
     recipesResultContainer.append(gridList);
-    if (data._links.next) loadMoreBtn.style.display = "block";
+    if (data._links.next.href) loadMoreBtn.style.display = "block";
     adjustFooter();
   }, 3000);
 
@@ -172,3 +173,27 @@ export const renderResults = function (data) {
     }
   });
 };
+
+// Filters Logic
+
+const applyFilterBtn = document.querySelector("[data-apply-filters]");
+const clearFilterBtn = document.querySelector("[data-clear-filters]");
+
+applyFilterBtn.addEventListener("click", function (e) {
+  let checked = Array.from(
+    document.querySelectorAll(".filter-wrapper input:checked")
+  );
+
+  let checkedValues = checked.map((cb) => cb.value);
+  const filterQuerySet = new Set(checkedValues);
+  const filterQueryString = Array.from(filterQuerySet).join("");
+  let searchQueryString = `&q=${recipesSearchInput.value}`;
+  window.location.hash = searchQueryString + filterQueryString;
+});
+
+clearFilterBtn.addEventListener("click", function () {
+  const inputs = document.querySelectorAll(".filter-wrapper input");
+  inputs.forEach((input) => (input.checked = false));
+
+  window.location.hash = `&q=${recipesSearchInput.value}`;
+});

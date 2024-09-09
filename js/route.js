@@ -51,7 +51,7 @@ const checkHash = function () {
   } else {
     // Results Page Queries
     let filterQueries = [];
-    let queries = [...hash.split("/")];
+    let queries = [hash];
     console.log(hash);
 
     recipesResultContainer.innerHTML = `
