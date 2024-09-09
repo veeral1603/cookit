@@ -9,11 +9,15 @@ const detailsContainer = document.querySelector("[data-details]");
 const contentContainers = document.querySelectorAll("article.container");
 let currentTab;
 
-resultCards.forEach((card) => {
-  card.addEventListener("click", function (e) {
-    if (e.target.closest(".bookmark-btn")) return;
+contentContainers.forEach((contianers) => {
+  contianers.addEventListener("click", function (e) {
+    if (!e.target.closest(".result-card") || e.target.closest(".bookmark-btn"))
+      return;
 
-    currentTab = card.closest("article");
+    const recipeId = e.target.closest(".result-card").dataset.id;
+    window.location.hash = recipeId;
+
+    currentTab = e.target.closest("article");
 
     contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
     detailsContainer.removeAttribute("hidden");
@@ -26,6 +30,9 @@ resultCards.forEach((card) => {
 const leadingBtn = document.querySelector("[data-leading-btn]");
 
 leadingBtn.addEventListener("click", function () {
+  if (window.location.hash.includes("recipe")) {
+    window.location.hash = "";
+  }
   contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
   currentTab.removeAttribute("hidden");
 });

@@ -1,7 +1,10 @@
 "use script";
 
-const APP_ID = "eb09ab20";
-const APP_KEY = "c5da883d253b0f8eae7d5a7dbe179139";
+// const APP_ID = "eb09ab20";
+// const APP_KEY = "c5da883d253b0f8eae7d5a7dbe179139";
+const APP_ID = "800bfd93";
+const APP_KEY = "88e8527137e2cd2cedcc243feaf583c7";
+
 const TYPE = "public";
 const BASE_URL = "https://api.edamam.com/api/recipes/v2?";
 
@@ -18,7 +21,6 @@ export const fetchData = async function (queries, callback) {
   try {
     const res = await fetch(URL);
     const data = await res.json();
-
     callback(data);
   } catch (err) {
     console.error(err);

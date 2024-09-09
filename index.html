@@ -40,7 +40,7 @@
     <ul class="mobile-nav-list">
 
         <li class="list-item" data-btn-recipes>
-            <a href="#/recipes" class="nav-link">
+            <a href="" class="nav-link">
                 <span class="icon-container">
                     <span class="material-symbols-outlined">lunch_dining</span>
                 </span>
@@ -49,7 +49,7 @@
         </li>
 
         <li class="list-item active" data-btn-home>
-            <a href="#/home" class="nav-link">
+            <a href="" class="nav-link">
                 <span class="icon-container">
                     <span class="material-symbols-outlined">home</span>
                 </span>
@@ -58,7 +58,7 @@
         </li>
 
         <li class="list-item" data-btn-saved>
-            <a href="#/saved" class="nav-link">
+            <a href="" class="nav-link">
                 <span class="icon-container">
                     <span class="material-symbols-outlined">bookmark</span>
                 </span>
@@ -1043,9 +1043,9 @@
 
                 <section class="section search-section">
                     <div class="search-wrapper">
-                        <input type="text" class="search-input">
+                        <input type="text" class="search-input" data-recipesSearchInput>
                         <div class="search-label">Search a recipe</div>
-                        <button class="search-button"><span class="material-symbols-outlined">search</span></button>
+                        <button class="search-button" data-recipesSearchBtn><span class="material-symbols-outlined">search</span></button>
                     </div>
 
                     <div class="filter-wrapper">
@@ -1613,113 +1613,122 @@
                     <div class="page-heading">
                         <h2 >All Recipes</h2>
                     </div>
+                    
+                    <div class="recipes-result-container">
+            
+                        <div class="grid-list">
 
-                    <div class="grid-list">
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
-
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card skeleton-card">
-                            <div class="skeleton card-banner"></div>
+                            <div class="card skeleton-card">
+                                <div class="skeleton card-banner"></div>
 
-                            <div class="card-body">
-                                <div class="skeleton card-title"></div>
-                                
-                                <div class="skeleton card-text"></div>
+                                <div class="card-body">
+                                    <div class="skeleton card-title"></div>
+                                    
+                                    <div class="skeleton card-text"></div>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
+
+                    
+                    <div class="loader" hidden recipe-loader></div>
+
+                    <button class="show-more-btn">Load More Recipes</button>
 
                 </section>
             </div>

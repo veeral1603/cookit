@@ -1,6 +1,9 @@
 "use script";
 
+import { fetchData } from "./api.js";
+import { printData } from "./home.js";
 import { adjustFooter, scrollToTop } from "./main.js";
+import { renderResults } from "./recipes.js";
 
 const mobileNavContainer = document.querySelector(".mobile-nav");
 const mobileNavBtns = document.querySelectorAll(".mobile-nav-list li");
@@ -28,6 +31,8 @@ export const changeNavTo = function (tab) {
   });
   headerTabBtn.classList.add("active");
 
+  if (tab == "home" || tab == "saved") window.location.hash = "";
+
   adjustFooter();
   scrollToTop();
 };
@@ -35,7 +40,19 @@ export const changeNavTo = function (tab) {
 const checkHash = function () {
   const hash = window.location.hash.slice(1);
 
-  console.log(hash);
+  if (hash === "") return;
+  else if (hash.includes("recipe")) {
+    // Recipe Details Page
+  } else {
+    // Results Page Queries
+    let filterQueries = [];
+    let queries = [hash];
+    console.log(hash);
+
+    fetchData(queries, function (data) {
+      renderResults(data);
+    });
+  }
 };
 
 window.addEventListener("hashchange", checkHash);

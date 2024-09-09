@@ -25,6 +25,8 @@ const headerBookmarkBtn = document.querySelector("[data-header-bookmark]");
 
 // Mobile
 mobileNavContainer.addEventListener("click", function (e) {
+  e.preventDefault();
+
   if (
     e.target.classList.contains("mobile-nav-list") ||
     e.target.classList.contains("mobile-nav")
@@ -87,7 +89,3 @@ const openDetails = function () {};
 export const error404 = function () {
   console.log("Error 404");
 };
-
-// Render  Recipes
-
-export const renderRecipesResults = function () {};

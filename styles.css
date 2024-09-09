@@ -443,6 +443,10 @@ article.container
 {
     animation: fade-in 200ms linear;
 }
+
+
+
+
 .tab-panel[hidden] 
 {
     display: none;
@@ -461,6 +465,8 @@ article.container
     overflow-x: auto;
 }
 
+.grid-list::-webkit-scrollbar { width: 0px;}
+
 /* .image-holder 
 {
     overflow: hidden;
@@ -472,6 +478,17 @@ article.container
 
 
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .result-card
 {
     position: relative;
@@ -480,6 +497,10 @@ article.container
     cursor: pointer;
     padding-block-end: 10px;
     border-radius: 8px;
+
+    opacity: 0;
+    transform: translateY(50px); /* Start from below */
+    animation: fadeInUp 0.5s ease-out forwards; /* Apply animation */
     
     
 }
@@ -1034,6 +1055,11 @@ article.container
     font-size: 12px;
 }
 
+.recipes-tab .content-right .page-heading
+{
+    color: #333;
+}
+
 .recipes-tab .message-section
 {
     display: flex;
@@ -1043,6 +1069,30 @@ article.container
     padding: 50% 0;
 }
 
+
+.recipes-tab .show-more-btn 
+{
+    margin-inline: auto;
+    display: none;
+}
+
+.loader 
+{
+    margin-inline: auto;
+    margin-block: 20px;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,var(--primary-color) 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,var(--primary-color));
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation: l13 1s infinite linear;
+}
+@keyframes l13
+{ 
+    100%{transform: rotate(1turn)}
+}
 
 /* Recipe Details tab  */
 
@@ -1868,6 +1918,11 @@ article.container
         font-size: 16px;
     }
 
+    .recipes-tab .show-more-btn
+    {
+        width: 40%;
+    }
+
     
 }
 
@@ -1922,6 +1977,11 @@ article.container
     .details-action .action-btn
     {
         font-size: 16px;
+    }
+
+    .recipes-tab .show-more-btn 
+    {
+        width: 30%;
     }
 
 }
