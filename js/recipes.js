@@ -189,11 +189,15 @@ applyFilterBtn.addEventListener("click", function (e) {
   const filterQueryString = Array.from(filterQuerySet).join("");
   let searchQueryString = `&q=${recipesSearchInput.value}`;
   window.location.hash = searchQueryString + filterQueryString;
+  closeFiltersRows();
+  closeFilters();
 });
 
 clearFilterBtn.addEventListener("click", function () {
   const inputs = document.querySelectorAll(".filter-wrapper input");
   inputs.forEach((input) => (input.checked = false));
+  closeFiltersRows();
+  closeFilters();
 
   window.location.hash = `&q=${recipesSearchInput.value}`;
 });
