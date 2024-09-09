@@ -1000,6 +1000,7 @@ article.container
 .recipes-tab .grid-list 
 {
     margin-block-start: 0px;
+    padding-block-end: 10px;
 }
 
 .filter-action-container
