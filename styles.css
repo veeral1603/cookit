@@ -1099,11 +1099,28 @@ article.container
     animation: l13 1s infinite linear;
 }
 
+.recipe-details .loader
+{
+    width: 80px;
+}
+
 .recipe-details .loader-container
 {
     display: grid;
     place-items: center;
     background-color: var(--background-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.recipe-details .content-left , .recipe-details .content-right
+{
+    animation: fade-in 3s  forwards;
 }
 
 
@@ -1499,7 +1516,7 @@ article.container
 
     .recipes-tab .grid-list
     {
-        margin-block-start: 100px;
+        margin-block-start: 10px;
     }
     
  }

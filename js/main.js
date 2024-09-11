@@ -19,10 +19,17 @@ document.querySelector(
 
 const loaderContainer = document.querySelector(".loader-container");
 if (window.innerWidth < 768) {
-  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px - 1.6rem - 66px)`;
+  loaderContainer.style.height = `calc(100vh - ${header.offsetHeight}px - 66px)`;
 } else {
-  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px - 1.6rem)`;
+  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px`;
 }
+
+// Capitalize Function
+
+export const Capitalize = function (str) {
+  const capStr = str[0].toUpperCase() + str.slice(1);
+  return capStr;
+};
 
 // Navigation
 
@@ -87,6 +94,9 @@ export const adjustFooter = function () {
 
 export const scrollToTop = function () {
   window.scrollTo(0, 0);
+};
+export const scrollTo = function (y) {
+  window.scrollTo(0, y);
 };
 
 // Recipe details page

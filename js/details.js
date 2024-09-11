@@ -1,13 +1,17 @@
 "use script";
 
 import { fetchData } from "./api.js";
-import { adjustFooter, scrollToTop } from "./main.js";
+import { adjustFooter, scrollToTop, Capitalize, scrollTo } from "./main.js";
 
 // Opening recipe details on clicking result cards
 
 const detailsContainer = document.querySelector("[data-details]");
 const contentContainers = document.querySelectorAll("article.container");
+const body = document.querySelector("body");
 let currentTab;
+let distanceFromTop;
+
+const footer = document.querySelector(".footer");
 
 contentContainers.forEach((contianers) => {
   contianers.addEventListener("click", function (e) {
@@ -21,32 +25,65 @@ contentContainers.forEach((contianers) => {
 
     contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
     detailsContainer.removeAttribute("hidden");
-    scrollToTop();
+
+    footer.classList.add("hidden");
     adjustFooter();
   });
-});
-
-// Leading Button
-
-const leadingBtn = document.querySelector("[data-leading-btn]");
-
-leadingBtn.addEventListener("click", function () {
-  if (window.location.hash.includes("recipe")) {
-    window.location.hash = "";
-  }
-  contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
-  currentTab.removeAttribute("hidden");
 });
 
 // Render Details
 
 const detailsContent = document.querySelector(".recipe-details > .container");
+const loaderContainer = document.querySelector(".loader-container");
 
 export const renderDetails = function (data) {
-  detailsContent.innerHTML = "";
-  console.log(data);
-  const details = `<div class="content-left">
-            
+  if (!data) return;
+  adjustFooter();
+
+  const {
+    label: recipeName,
+    source,
+    totalTime,
+    calories,
+    ingredientLines,
+    images,
+    url: fullRecipe,
+    cuisineType,
+    dishType,
+    mealType,
+    yield: servings,
+  } = data.recipe;
+
+  const smallImage = images.SMALL?.url;
+  const regularImage = images.REGULAR?.url;
+  const largeImage = images.LARGE?.url;
+
+  const tags = [cuisineType, mealType, dishType]
+    .flat()
+    .filter((arr) => arr !== undefined)
+    .map((el) => Capitalize(el));
+
+  let ingItems = "";
+  let tagItems = "";
+
+  ingredientLines.forEach((ing) => {
+    const ingMarkup = `<li class="list-item">${ing}</li>`;
+    ingItems += ingMarkup;
+  });
+
+  tags.forEach((tag) => {
+    const tagMarkup = `<li class="list-item">
+                    <div class="recipe-tag">
+                        <p>${tag}</p>
+                    </div>
+    </li>`;
+    tagItems += tagMarkup;
+  });
+
+  const detailsContentLeft = document.createElement("div");
+  detailsContentLeft.classList.add("content-left");
+
+  const markupContentLeft = `
                       <section class="details-header section" >
                           <div class="leading-btn-container">
                               <button class="leading-btn" data-leading-btn>
@@ -55,11 +92,13 @@ export const renderDetails = function (data) {
                           </div>
                           <div class="container">
                                   
-                                  <img src="Assets/Food/Food.jpg" class="recipe-image">  
+                                  <img src="${
+                                    largeImage ? largeImage : regularImage
+                                  }" class="recipe-image">  
 
                                   <div class="recipe-title-container">
                                       <div class="recipe-title">
-                                          <h2>Recipe Name Very big name very very big</h2>
+                                          <h2>${recipeName}</h2>
                                       </div>
 
                                       <button class="bookmarks-btn removed">
@@ -69,111 +108,123 @@ export const renderDetails = function (data) {
                                   </div>
 
                                   <div class="recipe-source-container">
-                                      <p>by <span class="recipe-source"><a href= "">Veeral Narang</a></span></p>
+                                      <p>by <span class="recipe-source"><a href= "${fullRecipe}" target="_blank">${source}</a></span></p>
                                   </div>
                           </div>
-                      </section>
+                      </section>           
+    `;
 
-                    </div>
+  const detailsContentRight = document.createElement("div");
+  detailsContentRight.classList.add("content-right");
 
-                    <div class="content-right">
-                        <section class="details-header section" >
-                            <div class="recipe-title-container">
-                                <div class="recipe-title">
-                                    <h2>Recipe Name Very big name very </h2>
-                                </div>
+  const markupContentRight = `
+                                    <section class="details-header section" >
+                                        <div class="recipe-title-container">
+                                            <div class="recipe-title">
+                                                <h2>${recipeName}</h2>
+                                            </div>
 
-                                <button class="bookmarks-btn removed">
-                                    <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save">Save</span>
-                                    <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" hidden>Unsave</span>
-                                </button>
-                            </div>
-
-                            <div class="recipe-source-container">
-                                <p>by <span class="recipe-source"><a href= "">Veeral Narang</a></span></p>
-                            </div>
-                        </section>
-
-                        <section class="details-content section" >
-
-                            <div class="recipe-meta">
-                                <div class="ingredients meta-box">
-                                    <h2 class="ingredients-value">4</h2>
-                                    <p class="ingredients-label">Ingredients</p>
-                                </div>
-                                <div class="time meta-box">
-                                    <h2 class="ingredients-value">15</h2>
-                                    <p class="ingredients-label">Minutes</p>
-                                </div>
-                                <div class="calories meta-box">
-                                    <h2 class="ingredients-value">450</h2>
-                                    <p class="ingredients-label">Calories</p>
-                                </div>
-                            </div>
-
-                            <div class="recipe-tags-container">
-                                <ul class="tags-list">
-
-                                    <li class="list-item">
-                                        <div class="recipe-tag">
-                                            <p>Low-Carb</p>
+                                            <button class="bookmarks-btn removed">
+                                                <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save">Save</span>
+                                                <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" hidden>Unsave</span>
+                                            </button>
                                         </div>
-                                    </li>
-                                    <li class="list-item">
-                                        <div class="recipe-tag">
-                                            <p>Chicken</p>
+
+                                        <div class="recipe-source-container">
+                                            <p>by <span class="recipe-source"><a href= "${fullRecipe}" target="_blank">${source}</a></span></p>
                                         </div>
-                                    </li>
+                                    </section>
 
-                                    <li class="list-item">
-                                        <div class="recipe-tag">
-                                            <p>Dinner</p>
+                                    <section class="details-content section" >
+
+                                        <div class="recipe-meta">
+                                            <div class="ingredients meta-box">
+                                                <h2 class="ingredients-value">${
+                                                  ingredientLines.length
+                                                }</h2>
+                                                <p class="ingredients-label">Ingredients</p>
+                                            </div>
+                                            <div class="time meta-box">
+                                                <h2 class="ingredients-value">${
+                                                  totalTime ? totalTime : "25+"
+                                                }</h2>
+                                                <p class="ingredients-label">Minutes</p>
+                                            </div>
+                                            <div class="calories meta-box">
+                                                <h2 class="ingredients-value">${Math.round(
+                                                  calories
+                                                )}</h2>
+                                                <p class="ingredients-label">Calories</p>
+                                            </div>
                                         </div>
-                                    </li>
-                                    
-                                    <li class="list-item">
-                                        <div class="recipe-tag">
-                                            <p>American</p>
+
+                                        <div class="recipe-tags-container">
+                                            <ul class="tags-list">
+                                                ${tagItems}
+                                            </ul>
                                         </div>
-                                    </li>
 
-                                </ul>
-                            </div>
+                                        <div class="recipe-ingredients">
+                                            <div class="ingredients-header">
+                                                <h2>Ingredients</h2>
+                                                <p class="servings">for <span class="servings-count">${servings}</span> servings</p>
+                                            </div>
 
-                            <div class="recipe-ingredients">
-                                <div class="ingredients-header">
-                                    <h2>Ingredients</h2>
-                                    <p class="servings">for <span class="servings-count">6</span> servings</p>
-                                </div>
+                                            <div class="ingredients-content">
+                                                <ul class="ingredients-list">
+                                                    ${ingItems}
+                                                </ul>
+                                            </div>
+                                        </div>
 
-                                <div class="ingredients-content">
-                                    <ul class="ingredients-list">
-                                        <li class="list-item">1 Tomato very very big</li>
-                                        <li class="list-item">1 Potato sliced finely</li>
-                                        <li class="list-item">1 tablespoon Sugar</li>
-                                        <li class="list-item">1 cup Water</li>
-                                        <li class="list-item">1 cup Water</li>
-                                        <li class="list-item">1 cup Water</li>
-                                        <li class="list-item">1 cup Water</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
+                                        <div class="details-action">
+                                            <a href= "${fullRecipe}" class="full-recipe-btn action-btn" target="_blank">
+                                                <span class="material-symbols-outlined">menu_book</span>
+                                                <span class="label">Full Recipe</span>
+                                            </a>
 
-                            <div class="details-action">
-                                <a href= "" class="full-recipe-btn action-btn">
-                                    <span class="material-symbols-outlined">menu_book</span>
-                                    <span class="label">Full Recipe</span>
-                                </a>
+                                            <button class="social-share-btn action-btn">
+                                                <span class="material-symbols-outlined">share</span>
+                                                <span class="label">Share Recipe</span>
+                                            </button>
+                                        </div>
 
-                                <a href = "" class="social-share-btn action-btn">
-                                    <span class="material-symbols-outlined">share</span>
-                                    <span class="label">Share Recipe</span>
-                                </a>
-                            </div>
+                                    </section>
 
-                        </section>
 
-                      /div>
-  `;
+    `;
+
+  detailsContentLeft.insertAdjacentHTML("afterbegin", markupContentLeft);
+  detailsContentRight.insertAdjacentHTML("afterbegin", markupContentRight);
+
+  detailsContent.append(detailsContentLeft);
+  detailsContent.append(detailsContentRight);
+  adjustFooter();
+
+  setTimeout(() => {
+    scrollToTop();
+    body.style.overflow = "auto";
+    loaderContainer.classList.add("hidden");
+  }, 2000);
 };
+
+// Leading Button
+
+document.addEventListener("mousedown", function (e) {
+  if (e.target.closest(".leading-btn-container")) return;
+  distanceFromTop = window.scrollY;
+});
+
+const leadingBtn = document.querySelector("[data-leading-btn]");
+
+detailsContainer.addEventListener("click", function (e) {
+  if (e.target.closest(".leading-btn-container")) {
+    if (window.location.hash.includes("recipe")) {
+      window.location.hash = "";
+    }
+    contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
+    currentTab.removeAttribute("hidden");
+    footer.classList.remove("hidden");
+    scrollTo(distanceFromTop);
+  }
+});

@@ -4,6 +4,8 @@ import * as api from "./api.js";
 import { resultCard, skeletonResultCard } from "./global.js";
 import * as route from "./route.js";
 
+const homeTab = document.querySelector("[data-home]");
+
 // Home Search
 
 const homeSearchInput = document.querySelector("[data-homeSearchInput]");
@@ -57,6 +59,15 @@ mealTabsContainer.addEventListener("click", function (e) {
   });
 });
 
+homeTab.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("show-more-btn") ||
+    e.target.closest("[data-slider-item]")
+  ) {
+    route.changeNavTo("recipes");
+  }
+});
+
 let panelMap = new Map([
   [1, "breakfast"],
   [2, "lunch"],
@@ -108,37 +119,6 @@ const addTabContent = function (panelsList) {
         const recipeNameCapitalized =
           recipeName[0].toUpperCase() + recipeName.slice(1);
         const recipeID = uri.split("#")[1];
-
-        // const card = ` <div class="card result-card" data-id="${recipeID}">
-        //                     <div class="image-holder">
-        //                         <img src="${smallImage}" width="200px" height="200px" class="result-card-image" alt="Image">
-        //                     </div>
-
-        //                     <div class="card-body">
-        //                         <h2 class="card-title">
-        //                             <a href="#${recipeID}" class="card-title-link">${
-        //   recipeNameCapitalized.length > 30
-        //     ? `${recipeNameCapitalized.slice(0, 30)}...`
-        //     : recipeNameCapitalized
-        // }</a>
-        //                         </h2>
-
-        //                         <div class="meta-wrapper">
-        //                             <div class="meta-item">
-        //                                 <span class="material-symbols-outlined">schedule</span>
-        //                                 <span class="meta-label">${
-        //                                   totalTime || "20+"
-        //                                 } Minutes</span>
-        //                             </div>
-
-        //                             <button class="bookmark-btn removed">
-        //                                 <span class="material-symbols-outlined bookmark-add">bookmark_add</span>
-        //                                 <span class="material-symbols-outlined bookmark">bookmark</span>
-        //                             </button>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //   `;
 
         gridList.insertAdjacentHTML(
           "afterbegin",

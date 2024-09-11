@@ -11,6 +11,8 @@ const mobileNavContainer = document.querySelector(".mobile-nav");
 const mobileNavBtns = document.querySelectorAll(".mobile-nav-list li");
 const contentContainers = document.querySelectorAll("article.container");
 const headerTabsContainer = document.querySelector(".header-tabs");
+const footer = document.querySelector(".footer");
+const body = document.querySelector("body");
 
 /**
  *
@@ -35,6 +37,8 @@ export const changeNavTo = function (tab) {
 
   if (tab == "home" || tab == "saved") window.location.hash = "";
 
+  if (footer.classList.contains("hidden")) footer.classList.remove("hidden");
+
   adjustFooter();
   scrollToTop();
 };
@@ -42,6 +46,7 @@ export const changeNavTo = function (tab) {
 let recipesResultContainer = document.querySelector(
   ".recipes-result-container"
 );
+const loaderContainer = document.querySelector(".loader-container");
 
 const checkHash = function () {
   const hash = window.location.hash.slice(1);
@@ -49,6 +54,12 @@ const checkHash = function () {
   if (hash === "") return;
   else if (hash.includes("recipe")) {
     // Recipe Details Page
+    const detailsContent = document.querySelector(
+      ".recipe-details > .container"
+    );
+
+    detailsContent.innerHTML = "";
+
     console.log(hash);
     let path = [hash];
 
@@ -56,6 +67,8 @@ const checkHash = function () {
       path,
       function (data) {
         renderDetails(data);
+        loaderContainer.classList.remove("hidden");
+        body.style.overflow = "hidden";
       },
       "path"
     );
