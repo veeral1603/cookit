@@ -1098,6 +1098,16 @@ article.container
     -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
     animation: l13 1s infinite linear;
 }
+
+.recipe-details .loader-container
+{
+    display: grid;
+    place-items: center;
+    background-color: var(--background-color);
+}
+
+
+
 @keyframes l13
 { 
     100%{transform: rotate(1turn)}
@@ -1148,6 +1158,11 @@ article.container
     display: flex;
     flex-direction: column;
     gap: 0;
+}
+
+.hidden 
+{
+    display: none !important;
 }
 
 .recipe-details .recipe-title-container 
@@ -1484,7 +1499,7 @@ article.container
 
     .recipes-tab .grid-list
     {
-        margin-block-start: 20px;
+        margin-block-start: 100px;
     }
     
  }
@@ -1643,6 +1658,12 @@ article.container
     .slider-item 
     {
         min-width: calc(25% - 6px);
+    }
+
+
+    .recipes-tab .grid-list
+    {
+        margin-block-start: 10px;
     }
 
     /* Recipe Detail Tab   */

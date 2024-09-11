@@ -1,6 +1,7 @@
 "use script";
 
 import { fetchData } from "./api.js";
+import { renderDetails } from "./details.js";
 import { skeletonResultCard } from "./global.js";
 import { printData } from "./home.js";
 import { adjustFooter, scrollToTop } from "./main.js";
@@ -48,6 +49,16 @@ const checkHash = function () {
   if (hash === "") return;
   else if (hash.includes("recipe")) {
     // Recipe Details Page
+    console.log(hash);
+    let path = [hash];
+
+    fetchData(
+      path,
+      function (data) {
+        renderDetails(data);
+      },
+      "path"
+    );
   } else {
     // Results Page Queries
     let filterQueries = [];

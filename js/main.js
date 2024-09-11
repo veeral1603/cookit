@@ -15,6 +15,15 @@ document.querySelector(
   ".recipes-tab .content-left"
 ).style.top = `calc(${header.offsetHeight}px + 0.8rem)`;
 
+// Loader Container hieght on Details Page
+
+const loaderContainer = document.querySelector(".loader-container");
+if (window.innerWidth < 768) {
+  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px - 1.6rem - 66px)`;
+} else {
+  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px - 1.6rem)`;
+}
+
 // Navigation
 
 const mobileNavContainer = document.querySelector(".mobile-nav");

@@ -164,7 +164,7 @@ const homeSliders = document.querySelectorAll(".home-tab .slider");
  * @param {NodeList} sliderList List of sliders in home tab
  */
 
-const addSliderContent = function (sliderList) {
+export const addSliderContent = function (sliderList) {
   sliderList.forEach((slid) => {
     const skeletonList = `<li class="slider-item">${skeletonResultCard}</li>
         `;
