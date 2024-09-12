@@ -39,6 +39,8 @@ export const changeNavTo = function (tab) {
 
   if (footer.classList.contains("hidden")) footer.classList.remove("hidden");
 
+  body.style.overflow = "auto";
+
   adjustFooter();
   scrollToTop();
 };
@@ -60,6 +62,9 @@ const checkHash = function () {
 
     detailsContent.innerHTML = "";
 
+    loaderContainer.classList.remove("hidden");
+    body.style.overflow = "hidden";
+
     console.log(hash);
     let path = [hash];
 
@@ -67,8 +72,6 @@ const checkHash = function () {
       path,
       function (data) {
         renderDetails(data);
-        loaderContainer.classList.remove("hidden");
-        body.style.overflow = "hidden";
       },
       "path"
     );

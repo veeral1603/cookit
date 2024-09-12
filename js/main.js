@@ -21,7 +21,7 @@ const loaderContainer = document.querySelector(".loader-container");
 if (window.innerWidth < 768) {
   loaderContainer.style.height = `calc(100vh - ${header.offsetHeight}px - 66px)`;
 } else {
-  loaderContainer.style.height = `calc(100vh - ${footer.offsetHeight}px - ${header.offsetHeight}px`;
+  loaderContainer.style.height = `calc(100vh - ${header.offsetHeight}px`;
 }
 
 // Capitalize Function

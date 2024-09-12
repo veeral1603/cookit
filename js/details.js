@@ -205,7 +205,7 @@ export const renderDetails = function (data) {
     scrollToTop();
     body.style.overflow = "auto";
     loaderContainer.classList.add("hidden");
-  }, 2000);
+  }, 3000);
 };
 
 // Leading Button
@@ -225,6 +225,7 @@ detailsContainer.addEventListener("click", function (e) {
     contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
     currentTab.removeAttribute("hidden");
     footer.classList.remove("hidden");
+    adjustFooter();
     scrollTo(distanceFromTop);
   }
 });
