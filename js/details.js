@@ -243,7 +243,7 @@ detailsContainer.addEventListener("click", function (e) {
     if (navigator.share) {
       const recTitle = document.querySelector(".recipe-title h2").innerHTML;
       const shareData = {
-        text: "Check this recipe out!",
+        text: recTitle,
         url: window.location,
         title: recTitle,
       };
