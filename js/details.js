@@ -2,6 +2,7 @@
 
 import { fetchData } from "./api.js";
 import { adjustFooter, scrollToTop, Capitalize, scrollTo } from "./main.js";
+import { changeNavTo } from "./route.js";
 
 // Opening recipe details on clicking result cards
 
@@ -13,6 +14,18 @@ let distanceFromTop;
 
 const footer = document.querySelector(".footer");
 
+export const openDetails = function (e) {
+  if (e) {
+    currentTab = e.target.closest("article");
+  }
+
+  contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
+  detailsContainer.removeAttribute("hidden");
+
+  footer.classList.add("hidden");
+  adjustFooter();
+};
+
 contentContainers.forEach((contianers) => {
   contianers.addEventListener("click", function (e) {
     if (!e.target.closest(".result-card") || e.target.closest(".bookmark-btn"))
@@ -21,13 +34,7 @@ contentContainers.forEach((contianers) => {
     const recipeId = e.target.closest(".result-card").dataset.id;
     window.location.hash = `/${recipeId}`;
 
-    currentTab = e.target.closest("article");
-
-    contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
-    detailsContainer.removeAttribute("hidden");
-
-    footer.classList.add("hidden");
-    adjustFooter();
+    openDetails(e);
   });
 });
 
@@ -185,7 +192,7 @@ export const renderDetails = function (data) {
 
                                             <button class="social-share-btn action-btn">
                                                 <span class="material-symbols-outlined">share</span>
-                                                <span class="label">Share Recipe</span>
+                                                <span class="label">Share</span>
                                             </button>
                                         </div>
 
@@ -223,9 +230,26 @@ detailsContainer.addEventListener("click", function (e) {
       window.location.hash = "";
     }
     contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
-    currentTab.removeAttribute("hidden");
+    if (currentTab) {
+      currentTab.removeAttribute("hidden");
+    } else {
+      changeNavTo("home");
+    }
     footer.classList.remove("hidden");
     adjustFooter();
     scrollTo(distanceFromTop);
+  }
+  if (e.target.closest(".social-share-btn")) {
+    if (navigator.share) {
+      const recTitle = document.querySelector(".recipe-title h2").innerHTML;
+      const shareData = {
+        text: "Check this recipe out!",
+        url: window.location,
+        title: recTitle,
+      };
+      navigator.share(shareData);
+    } else {
+      navigator.clipboard.writeText();
+    }
   }
 });

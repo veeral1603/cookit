@@ -1,7 +1,7 @@
 "use script";
 
 import { fetchData } from "./api.js";
-import { renderDetails } from "./details.js";
+import { openDetails, renderDetails } from "./details.js";
 import { skeletonResultCard } from "./global.js";
 import { printData } from "./home.js";
 import { adjustFooter, scrollToTop } from "./main.js";
@@ -56,6 +56,8 @@ const checkHash = function () {
   if (hash === "") return;
   else if (hash.includes("recipe")) {
     // Recipe Details Page
+    openDetails();
+
     const detailsContent = document.querySelector(
       ".recipe-details > .container"
     );
@@ -96,3 +98,4 @@ const checkHash = function () {
 };
 
 window.addEventListener("hashchange", checkHash);
+window.addEventListener("load", checkHash);
