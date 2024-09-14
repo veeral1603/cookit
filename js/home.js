@@ -1,6 +1,7 @@
 "use script";
 
 import * as api from "./api.js";
+import { bookmarksArr } from "./bookmarks.js";
 import { resultCard, skeletonResultCard } from "./global.js";
 import * as route from "./route.js";
 

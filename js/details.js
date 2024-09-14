@@ -1,7 +1,9 @@
 "use script";
 
 import { fetchData } from "./api.js";
+import { addBookmark, detailsAddBookmark } from "./bookmarks.js";
 import { adjustFooter, scrollToTop, Capitalize, scrollTo } from "./main.js";
+import { bookmarksArr } from "./bookmarks.js";
 import { changeNavTo } from "./route.js";
 
 // Opening recipe details on clicking result cards
@@ -28,13 +30,16 @@ export const openDetails = function (e) {
 
 contentContainers.forEach((contianers) => {
   contianers.addEventListener("click", function (e) {
-    if (!e.target.closest(".result-card") || e.target.closest(".bookmark-btn"))
-      return;
+    if (!e.target.closest(".result-card")) return;
 
-    const recipeId = e.target.closest(".result-card").dataset.id;
-    window.location.hash = `/${recipeId}`;
-
-    openDetails(e);
+    if (e.target.closest(".bookmark-btn")) {
+      addBookmark(e);
+    }
+    if (!e.target.closest(".bookmark-btn")) {
+      const recipeId = e.target.closest(".result-card").dataset.id;
+      window.location.hash = `/${recipeId}`;
+      openDetails(e);
+    }
   });
 });
 
@@ -64,6 +69,8 @@ export const renderDetails = function (data) {
   const smallImage = images.SMALL?.url;
   const regularImage = images.REGULAR?.url;
   const largeImage = images.LARGE?.url;
+
+  const recipeID = window.location.hash.slice(2);
 
   const tags = [cuisineType, mealType, dishType]
     .flat()
@@ -108,9 +115,15 @@ export const renderDetails = function (data) {
                                           <h2>${recipeName}</h2>
                                       </div>
 
-                                      <button class="bookmarks-btn removed">
-                                          <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save">Save</span>
-                                          <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" hidden>Unsave</span>
+                                      <button class="bookmarks-btn ${
+                                        bookmarksArr.some(
+                                          (obj) => obj.recipeID === recipeID
+                                        )
+                                          ? "saved"
+                                          : "removed"
+                                      }">
+                                          <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save" class="bookmark-add">Save</span>
+                                          <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" class="bookmark">Unsave</span>
                                       </button>
                                   </div>
 
@@ -131,9 +144,16 @@ export const renderDetails = function (data) {
                                                 <h2>${recipeName}</h2>
                                             </div>
 
-                                            <button class="bookmarks-btn removed">
-                                                <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save">Save</span>
-                                                <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" hidden>Unsave</span>
+                                            <button class="bookmarks-btn ${
+                                              bookmarksArr.some(
+                                                (obj) =>
+                                                  obj.recipeID === recipeID
+                                              )
+                                                ? "saved"
+                                                : "removed"
+                                            }">
+                                               <span class="material-symbols-outlined bookmark-add">bookmark_add</span> <span id="label-save" class="bookmark-add">Save</span>
+                                            <span class="material-symbols-outlined bookmark">bookmark</span> <span id="label-unsave" class="bookmark">Unsave</span>
                                             </button>
                                         </div>
 
@@ -239,6 +259,11 @@ detailsContainer.addEventListener("click", function (e) {
     adjustFooter();
     scrollTo(distanceFromTop);
   }
+
+  if (e.target.closest(".bookmarks-btn")) {
+    addBookmark(e);
+  }
+
   if (e.target.closest(".social-share-btn")) {
     if (navigator.share) {
       const recTitle = document.querySelector(".recipe-title h2").innerHTML;

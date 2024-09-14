@@ -6,6 +6,7 @@ import * as details from "./details.js";
 import * as home from "./home.js";
 import * as recipes from "./recipes.js";
 import * as global from "./global.js";
+import * as bookmarks from "./bookmarks.js";
 
 const footer = document.querySelector(".footer");
 const header = document.querySelector(".header");
@@ -99,9 +100,22 @@ export const scrollTo = function (y) {
   window.scrollTo(0, y);
 };
 
-// Recipe details page
+// Popup message
 
-const openDetails = function () {};
+const popUpContainer = document.querySelector(".popup");
+const closePopUpBtn = document.querySelector(".close-popup-btn");
+const popUpMessage = document.querySelector(".popup p");
+
+export const openPopUp = function (str = "msg") {
+  popUpMessage.innerHTML = str;
+  popUpContainer.classList.toggle("active");
+};
+
+export const closePopUp = function () {
+  popUpContainer.classList.toggle("active");
+};
+
+closePopUpBtn.addEventListener("click", closePopUp);
 
 // Error 404
 

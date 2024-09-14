@@ -1,5 +1,7 @@
 "use script";
 
+import { bookmarksArr } from "./bookmarks.js";
+
 export const skeletonResultCard = `
                         <div class="card skeleton-card">
                             <div class="skeleton card-banner"></div>
@@ -39,7 +41,13 @@ export const resultCard = function (recipeName, uri, smallImage, totalTime) {
                                         } Minutes</span>
                                     </div>
   
-                                    <button class="bookmark-btn removed">
+                                    <button class="bookmark-btn ${
+                                      bookmarksArr.some(
+                                        (obj) => obj.recipeID == recipeID
+                                      )
+                                        ? "saved"
+                                        : "removed"
+                                    }">
                                         <span class="material-symbols-outlined bookmark-add">bookmark_add</span>
                                         <span class="material-symbols-outlined bookmark">bookmark</span>
                                     </button>
