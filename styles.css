@@ -2,7 +2,7 @@
 
 :root
 {
-    --primary-color: #ff6b16fd;
+    --primary-color: #ff7800;
     --primary-hover-color: #f65f19fd;
     --secondary-color: #ffeaddfd;
     --background-color: white;
@@ -12,7 +12,7 @@
     --icon-btn-hover-color: #ffeaddfd;
     --secondary-btn-color: #ffeaddfd;
     --secondary-btn-hover-color: #fcbf9cfd;
-    --btn-color: #ff6b16fd;
+    --btn-color: #ff7800;
 
     --primary-heading-color: #333;
     --hero-heading-color: white;

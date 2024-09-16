@@ -95,7 +95,7 @@ export const detailsAddBookmark = function (e) {
   let imageLink = details.querySelector(".recipe-image").src;
   let recipeName = details.querySelector(".recipe-title h2").innerHTML;
   let recipeUri = window.location.href;
-  let time = details.querySelector(".time h2").innerHTML;
+  let time = document.querySelector(".time h2").innerHTML;
   let recipeID = document.querySelector(".recipe-image").dataset.id;
 
   const obj = { image: imageLink, recipeName, time, recipeID, recipeUri };

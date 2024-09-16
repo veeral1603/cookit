@@ -23,7 +23,7 @@ export const openDetails = function (e) {
   contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
   detailsContainer.removeAttribute("hidden");
 
-  // footer.classList.add("hidden");
+  footer.classList.add("hidden");
   adjustFooter();
 };
 
@@ -107,7 +107,7 @@ export const renderDetails = function (data) {
                                   
                                   <img src="${
                                     largeImage ? largeImage : regularImage
-                                  }" class="recipe-image" data-id="${recipeID}">  
+                                  }" class="recipe-image" data-id="${recipeID}" loading="lazy">  
 
                                   <div class="recipe-title-container">
                                       <div class="recipe-title">
@@ -231,6 +231,7 @@ export const renderDetails = function (data) {
     scrollToTop();
     body.style.overflow = "auto";
     loaderContainer.classList.add("hidden");
+    footer.classList.remove("hidden");
   }, 3000);
 };
 

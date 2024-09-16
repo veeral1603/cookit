@@ -21,7 +21,7 @@ export const resultCard = function (recipeName, uri, smallImage, totalTime) {
 
   const card = ` <div class="card result-card" data-id="${recipeID}">
                             <div class="image-holder">
-                                <img src="${smallImage}" width="200px" height="200px" class="result-card-image" alt="Image">
+                                <img src="${smallImage}" width="200px" height="200px" class="result-card-image" alt="Image" loading="lazy">
                             </div>
   
                             <div class="card-body">
