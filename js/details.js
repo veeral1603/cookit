@@ -1,9 +1,8 @@
 "use script";
 
 import { fetchData } from "./api.js";
-import { addBookmark, detailsAddBookmark } from "./bookmarks.js";
+import { addBookmark, detailsAddBookmark, getBookmarks } from "./bookmarks.js";
 import { adjustFooter, scrollToTop, Capitalize, scrollTo } from "./main.js";
-import { bookmarksArr } from "./bookmarks.js";
 import { changeNavTo } from "./route.js";
 
 // Opening recipe details on clicking result cards
@@ -24,7 +23,7 @@ export const openDetails = function (e) {
   contentContainers.forEach((cont) => cont.setAttribute("hidden", ""));
   detailsContainer.removeAttribute("hidden");
 
-  footer.classList.add("hidden");
+  // footer.classList.add("hidden");
   adjustFooter();
 };
 
@@ -116,7 +115,7 @@ export const renderDetails = function (data) {
                                       </div>
 
                                       <button class="bookmarks-btn ${
-                                        bookmarksArr.some(
+                                        getBookmarks().some(
                                           (obj) => obj.recipeID === recipeID
                                         )
                                           ? "saved"
@@ -145,7 +144,7 @@ export const renderDetails = function (data) {
                                             </div>
 
                                             <button class="bookmarks-btn ${
-                                              bookmarksArr.some(
+                                              getBookmarks().some(
                                                 (obj) =>
                                                   obj.recipeID === recipeID
                                               )

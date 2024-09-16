@@ -3,6 +3,29 @@
 import { resultCard } from "./global.js";
 import { closePopUp, openPopUp } from "./main.js";
 
+export let saveBookmarks = function (bookmarks) {
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+};
+
+export let getBookmarks = function () {
+  const bookmarks = localStorage.getItem("bookmarks");
+  return bookmarks ? JSON.parse(bookmarks) : [];
+};
+
+export let pushBookmark = function (object) {
+  const bookmarks = getBookmarks();
+  bookmarks.push(object);
+  saveBookmarks(bookmarks);
+};
+
+export let removeBookmark = function (object) {
+  const bookmarks = getBookmarks();
+  const newBookmarks = bookmarks.filter(
+    (el) => el.recipeID !== object.recipeID
+  );
+  saveBookmarks(newBookmarks);
+};
+
 export let bookmarksArr = [];
 
 const headerBookmarkBtn = document.querySelector(".bookmarks-btn");
@@ -24,14 +47,14 @@ export const addBookmark = function (e) {
 
   const obj = { image: imageLink, recipeName, time, recipeID, recipeUri };
 
-  const exists = bookmarksArr.some(
+  const exists = getBookmarks().some(
     (object) => object.recipeID === obj.recipeID
   );
 
   if (exists) {
     openPopUp("Bookmark Removed");
-    bookmarksArr = bookmarksArr.filter((el) => el.recipeID !== obj.recipeID);
-    console.log(bookmarksArr);
+    removeBookmark(obj);
+    console.log(getBookmarks());
     bookmarkBtn.classList.add("removed");
     bookmarkBtn.classList.remove("saved");
 
@@ -47,16 +70,17 @@ export const addBookmark = function (e) {
     if (card.closest(".saved-tab")) {
       card.remove();
 
-      if (bookmarksArr.length === 0) {
+      if (getBookmarks().length === 0) {
         messageContainer.removeAttribute("hidden");
         gridList.innerHTML = "";
+        setTimeout(closePopUp, 3000);
         return;
       }
     }
   } else {
     openPopUp("Bookmark Added");
-    bookmarksArr.push(obj);
-    console.log(bookmarksArr);
+    pushBookmark(obj);
+    console.log(getBookmarks());
     bookmarkBtn.classList.add("saved");
     bookmarkBtn.classList.remove("removed");
   }
@@ -76,17 +100,17 @@ export const detailsAddBookmark = function (e) {
 
   const obj = { image: imageLink, recipeName, time, recipeID, recipeUri };
 
-  const exists = bookmarksArr.some(
+  const exists = getBookmarks().some(
     (object) => object.recipeID === obj.recipeID
   );
 
   if (exists) {
     openPopUp("Bookmark Removed");
-    bookmarksArr = bookmarksArr.filter((el) => el.recipeID !== obj.recipeID);
-    console.log(bookmarksArr);
+    removeBookmark(obj);
+    console.log(getBookmarks());
     bookmarkBtn.forEach((btn) => {
       btn.classList.add("removed");
-      btn.classList.remov("saved");
+      btn.classList.remove("saved");
     });
 
     const all = document.querySelectorAll(`[data-id="${recipeID}"]`);
@@ -99,8 +123,8 @@ export const detailsAddBookmark = function (e) {
     });
   } else {
     openPopUp("Bookmark Added");
-    bookmarksArr.push(obj);
-    console.log(bookmarksArr);
+    pushBookmark(obj);
+    console.log(getBookmarks());
     bookmarkBtn.forEach((btn) => {
       btn.classList.add("saved");
       btn.classList.remove("removed");
@@ -124,7 +148,7 @@ const savedSection = document.querySelector(".saved-section");
 const gridList = document.querySelector(".saved-section .container .grid-list");
 
 export const renderBookmarks = function () {
-  if (bookmarksArr.length === 0) {
+  if (getBookmarks().length === 0) {
     messageContainer.removeAttribute("hidden");
     gridList.innerHTML = "";
     return;
@@ -133,7 +157,7 @@ export const renderBookmarks = function () {
   messageContainer.setAttribute("hidden", "");
   gridList.innerHTML = "";
 
-  bookmarksArr.forEach((recipe) => {
+  getBookmarks().forEach((recipe) => {
     const card = resultCard(
       recipe.recipeName,
       recipe.recipeUri,
