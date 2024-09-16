@@ -108,7 +108,7 @@ export const renderDetails = function (data) {
                                   
                                   <img src="${
                                     largeImage ? largeImage : regularImage
-                                  }" class="recipe-image">  
+                                  }" class="recipe-image" data-id="${recipeID}">  
 
                                   <div class="recipe-title-container">
                                       <div class="recipe-title">
@@ -261,7 +261,7 @@ detailsContainer.addEventListener("click", function (e) {
   }
 
   if (e.target.closest(".bookmarks-btn")) {
-    addBookmark(e);
+    detailsAddBookmark(e);
   }
 
   if (e.target.closest(".social-share-btn")) {

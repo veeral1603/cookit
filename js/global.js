@@ -17,7 +17,7 @@ export const skeletonResultCard = `
 export const resultCard = function (recipeName, uri, smallImage, totalTime) {
   const recipeNameCapitalized =
     recipeName[0].toUpperCase() + recipeName.slice(1);
-  const recipeID = uri.split("#")[1];
+  const recipeID = uri.split("#")[1].replace("/", "");
 
   const card = ` <div class="card result-card" data-id="${recipeID}">
                             <div class="image-holder">
@@ -26,7 +26,7 @@ export const resultCard = function (recipeName, uri, smallImage, totalTime) {
   
                             <div class="card-body">
                                 <h2 class="card-title">
-                                    <a href="#${recipeID}" class="card-title-link">${
+                                    <a href="#/${recipeID}" class="card-title-link">${
     recipeNameCapitalized.length > 30
       ? `${recipeNameCapitalized.slice(0, 30)}...`
       : recipeNameCapitalized
