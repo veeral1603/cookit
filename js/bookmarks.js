@@ -1,7 +1,7 @@
 "use script";
 
 import { resultCard } from "./global.js";
-import { closePopUp, openPopUp } from "./main.js";
+import { adjustFooter, closePopUp, openPopUp } from "./main.js";
 
 export let saveBookmarks = function (bookmarks) {
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -73,6 +73,7 @@ export const addBookmark = function (e) {
       if (getBookmarks().length === 0) {
         messageContainer.removeAttribute("hidden");
         gridList.innerHTML = "";
+        adjustFooter();
         setTimeout(closePopUp, 3000);
         return;
       }

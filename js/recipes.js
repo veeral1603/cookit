@@ -144,6 +144,7 @@ export const renderResults = function (data) {
   loadMoreBtn.addEventListener("click", async function () {
     try {
       loadMoreLoader.removeAttribute("hidden");
+      loadMoreBtn.style.display = "none";
 
       const response = await fetch(nextLink);
       const newData = await response.json();
@@ -164,6 +165,7 @@ export const renderResults = function (data) {
 
         setTimeout(() => {
           loadMoreLoader.setAttribute("hidden", "");
+          if (data._links.next.href) loadMoreBtn.style.display = "block";
           gridList.insertAdjacentHTML(
             "beforeend",
             resultCard(newRecipeName, newUri, newSmallImage, newTotalTime)

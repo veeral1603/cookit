@@ -7,9 +7,14 @@ import * as home from "./home.js";
 import * as recipes from "./recipes.js";
 import * as global from "./global.js";
 import * as bookmarks from "./bookmarks.js";
+import * as theme from "./theme.js";
 
 const footer = document.querySelector(".footer");
 const header = document.querySelector(".header");
+
+// Stikcy tabs
+const tabsContainer = document.querySelector(".tabs-section .tabs-container");
+tabsContainer.style.top = `${header.offsetHeight - 1}px`;
 
 // Sticky Sidebar on recpies page
 document.querySelector(

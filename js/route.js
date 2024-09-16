@@ -67,7 +67,6 @@ const checkHash = function () {
     loaderContainer.classList.remove("hidden");
     body.style.overflow = "hidden";
 
-    console.log(hash);
     let path = [hash];
 
     fetchData(
@@ -81,7 +80,6 @@ const checkHash = function () {
     // Results Page Queries
     let filterQueries = [];
     let queries = [hash];
-    console.log(hash);
 
     recipesResultContainer.innerHTML = `
     <div class="grid-list">
