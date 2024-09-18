@@ -1,5 +1,7 @@
 "use script";
 
+import { openPopUp } from "./main.js";
+
 // const APP_ID = "eb09ab20";
 // const APP_KEY = "c5da883d253b0f8eae7d5a7dbe179139";
 const APP_ID = "800bfd93";
@@ -29,6 +31,7 @@ export const fetchData = async function (queries, callback, type = "query") {
     const data = await res.json();
     callback(data);
   } catch (err) {
+    openPopUp("Some error occured!");
     console.error(err);
   }
 };

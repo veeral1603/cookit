@@ -8,12 +8,14 @@ function enableDarkMode() {
   body.classList.add("dark_mode");
   localStorage.setItem("theme", "dark");
   logo.src = `Assets/foodify-logo-dark.png`;
+  modeSwitchBtn.querySelector("span").innerHTML = "light_mode";
 }
 
 function enableLightMode() {
   document.body.classList.remove("dark_mode");
   localStorage.setItem("theme", "light");
   logo.src = `Assets/foodify-logo.png`;
+  modeSwitchBtn.querySelector("span").innerHTML = "dark_mode";
 }
 
 function toggleTheme() {
